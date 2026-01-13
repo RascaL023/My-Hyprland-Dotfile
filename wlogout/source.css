@@ -1,0 +1,5 @@
+@define-color window-bg             rgba(10, 10, 24, 0.8); 
+
+@define-color button-bg             rgba(0, 0, 0, 0.6);
+@define-color button-focus-bg       #BB86FC;
+@define-color button-focus-border   #BB86FC;

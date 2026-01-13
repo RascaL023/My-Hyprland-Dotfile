@@ -1,0 +1,28 @@
+[general]
+framerate = 50
+sensitivity = 100
+
+
+[input]
+method = pipewire
+source = auto
+
+
+[output]
+method = noncurses
+channels = stereo
+mono_option = average
+
+
+[smoothing]
+integral = 100
+
+
+[color]
+gradient = 1
+gradient_color_1 = "#4B0082"
+gradient_color_2 = "#8A2BE2"
+gradient_color_3 = "#BA55D3"
+gradient_color_4 = "#DA70D6"
+gradient_color_5 = "#D8BFD9"
+

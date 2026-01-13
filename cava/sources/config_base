@@ -1,0 +1,22 @@
+[general]
+framerate = 50
+sensitivity = 100
+
+
+[input]
+method = pipewire
+source = auto
+
+
+[output]
+method = noncurses
+channels = stereo
+mono_option = average
+
+
+[smoothing]
+integral = 100
+
+
+[color]
+gradient = 1
