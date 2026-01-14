@@ -1,0 +1,51 @@
+;; (defwindow try
+;;   :monitor 0
+;;   :geometry (geometry :x "1%"
+;;                       :y "20px"
+;;                       :width "40%"
+;;                       :height "30px"
+;;                       :anchor "top center")
+;;   :stacking "fg"
+;;   :focusable "ondemad"
+;; "Hello World")
+
+;; (defwindow try
+;;   :monitor 0
+;;   :geometry (geometry :x "1%"
+;;                       :y "40px"
+;;                       :width "30%"
+;;                       :height "20px"
+;;                       :anchor "top center")
+;;   :stacking "fg"
+;;   :focusable "true"
+;; (greet :text "Say Hello"
+;;        :name "rascal"))
+;;
+;; (defwidget greet [?text name]
+;;   (box :orientation "horizontal"
+;;        :halign "center"
+;;   text
+;;   (button :onclick "notify-send -t 2000 'Hello' 'Hai, ${name}!'"
+;; "Greet")))
+
+(defvar time-visible false)
+(defpoll time :interval "3s"
+              ;; :initial false
+              ;; :run-while time-visible
+        ;; `date +%H:%M:%S`)
+        `notify-send -t 1000 PPP`)
+(defwindow try
+  :monitor 0
+  :geometry (geometry :x "0.5%"
+                      :y "0"
+                      :width "15%"
+                      :height "20px"
+                      :anchor "top right")
+  :stacking "fg"
+  :focusable "ondemand"
+  (clock))
+
+(defwidget clock []
+  (box :orientation "horizontal"
+       :halign "center"
+    "Now: " time))

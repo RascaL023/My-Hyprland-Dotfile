@@ -1,0 +1,97 @@
+@import "source.scss";
+
+* {
+  all: unset;
+}
+
+/* ============================= PROFILE ============================= */
+.profile {
+  background-color: $PrimaryBg;
+  border-radius: 16px;
+  padding: 20px;
+  font-family: $PrimaryFont;
+}
+
+.profile-box {
+  background-color: $SecondaryBg;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.profile-name {
+  color: $Text1;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* ----- POWER ----- */
+.power-item {
+  margin-top: 8px;
+  min-height: 45px;
+}
+
+.power-btn {
+  font-size: 24px;
+  color: $Text2;
+  background-color: $SecondaryBg;
+  border-radius: 12px;
+  padding: 10px 15px;
+  margin: 0 4px;
+  min-width: 40px;
+  transition: 600ms;
+}
+
+.power-btn:hover {
+  background-color: $ButtonHover1;
+  color: $Text3;
+}
+
+.power-btn:active {
+  background-color: $ButtonActive1;
+}
+
+/* ============================= DISTRO ============================= */
+.music-player {
+  background-color: $DistroBg;
+  border-radius: 20px;
+  padding: 12px 20px;
+  color: $DistroText1;
+  font-size: 11pt;
+  font-family: $SecondaryFont;
+}
+
+.music-btn {
+  color: $MusicButton;
+  padding: 4px 10px;
+  transition: 150ms;
+  border-radius: 8px;
+  &:hover {
+    color: $MusicButtonHover;
+    background-color: $MusicButtonHoverBg;
+  }
+  &:active {
+    background-color: $MusicButtonActive;
+  }
+}
+
+.prev-btn{
+  padding-right: 14px;
+  padding-left: 9px;
+}
+
+.next-btn{
+  padding-right: 13.5px;
+}
+
+.music-text {
+  color: $DistroText2;
+  font-weight: 500;
+  margin-left: 10px;
+}

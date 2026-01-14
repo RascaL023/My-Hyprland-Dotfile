@@ -1,0 +1,34 @@
+; /* ============== Profile ============== */
+(defwidget profile []
+  (box :orientation "v" :class "profile" :spacing 1
+    (box :orientation "h" :spacing 12 :class "profile-box"
+        (image :path "/home/rascal/Pictures/Icons/Me-icon.png"
+        :class "profile-pic"
+        :image-height 70)
+      (label :text "Ra$caL" :class "profile-name" :valign "center")
+    )
+    (box :orientation "v" :spacing 1
+      (box :orientation "h" :spacing 1 :class "power-item" :halign "center"
+        (button :class "power-btn" :onclick "./scripts/power.sh 'shutdown'" "")
+        (button :class "power-btn" :onclick "./scripts/power.sh 'sleep'" "")
+        (button :class "power-btn" :onclick "./scripts/power.sh 'reboot'" "")
+      )
+      (box :orientation "h" :spacing 8 :class "power-item" :halign "center"
+        (button :class "power-btn" :onclick "./scripts/power.sh 'logout'" "󰍃")
+        (button :class "power-btn" :onclick "./scripts/power.sh 'lock'" "")
+      )
+    )
+  )
+)
+
+(defwindow profile
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry
+    :x "0.5%"
+    :y "0.3%"
+    :width "18%"
+    :height "15%"
+    :anchor "top left")
+  (profile))
+
