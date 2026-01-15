@@ -1,12 +1,41 @@
-;; Polls
-(defpoll music-info :interval "3s" "./scripts/music.sh")
-(defpoll music-status :interval "1s" "mpc status | awk 'NR==2 {print $1}' | tr -d '[]'")
+;;###################
+;;###### Polls ######
+;;###################
 
-;; Vars
+;; (defpoll music-stream :interval "1s" "mpc status | awk 'NR==2 {print $1}' | tr -d '[]'")
+
+
+
+;;########################
+;;###### Listeners #######
+;;########################
+
+(deflisten music-info
+  :initial ` "No Music"`
+  `bash -c '
+    {
+      mpc idleloop player | while read e; do ./scripts/music.sh; done &
+      tail -F ~/.local/share/mpd/log -n 2 | while read e; do ./scripts/music.sh; done &
+      wait
+    }
+'`)
+(deflisten music-status 
+ :initial "-"
+ `mpc idleloop player | ./scripts/music.sh 'status'`)
+
+
+;;##################
+;;###### Vars ######
+;;##################
+
 (defvar music-control false)
-;; (defvar distro-reveal false)
+;; (defvar music-initial-status `mpc idleloop player | while read e; do ./scripts/music.sh 'status'; done`)
 
-;; Widgets
+
+;;###################
+;;##### Widgets #####
+;;###################
+
 (include "modules/profile.yuck")
 (include "modules/distro.yuck")
 (include "modules/try.yuck")

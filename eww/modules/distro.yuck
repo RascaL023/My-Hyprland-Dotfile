@@ -2,7 +2,7 @@
 (defwidget playpause-btn []
   (button
     :class "music-btn play-btn"
-    :onclick "mpc toggle"
+    :onclick "mpc toggle && eww update music-status=$(./scripts/music.sh 'status')"
     (label
       :text {music-status == "playing" ? "" : 
              music-status == "paused" ? "" : "-"})))
