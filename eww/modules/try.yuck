@@ -28,24 +28,24 @@
 ;;   (button :onclick "notify-send -t 2000 'Hello' 'Hai, ${name}!'"
 ;; "Greet")))
 
-(defvar time-visible false)
-(defpoll time :interval "3s"
-              ;; :initial false
-              ;; :run-while time-visible
-        ;; `date +%H:%M:%S`)
-        `notify-send -t 1000 PPP`)
-(defwindow try
-  :monitor 0
-  :geometry (geometry :x "0.5%"
-                      :y "0"
-                      :width "15%"
-                      :height "20px"
-                      :anchor "top right")
-  :stacking "fg"
-  :focusable "ondemand"
-  (clock))
-
-(defwidget clock []
-  (box :orientation "horizontal"
-       :halign "center"
-    "Now: " time))
+;; (defvar time-visible false)
+;; (defpoll time :interval "3s"
+;;               ;; :initial false
+;;               ;; :run-while time-visible
+;;         ;; `date +%H:%M:%S`)
+;;         `notify-send -t 1000 PPP`)
+;; (defwindow try
+;;   :monitor 0
+;;   :geometry (geometry :x "0.5%"
+;;                       :y "0"
+;;                       :width "15%"
+;;                       :height "20px"
+;;                       :anchor "top right")
+;;   :stacking "fg"
+;;   :focusable "ondemand"
+;;   (clock))
+;;
+;; (defwidget clock []
+;;   (box :orientation "horizontal"
+;;        :halign "center"
+;;     "Now: " time))
