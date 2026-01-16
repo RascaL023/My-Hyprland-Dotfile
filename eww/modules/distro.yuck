@@ -1,65 +1,141 @@
-; /* ============== Distros ============== */
+;; ============================ Distros =============================
+
+;; ---------------------------- Play/Pause Button ----------------------------
 (defwidget playpause-btn []
   (button
     :class "music-btn play-btn"
     :onclick "mpc toggle && eww update music-status=$(./scripts/music.sh 'status')"
     (label
-      :text {music-status == "playing" ? "" : 
-             music-status == "paused" ? "" : "-"})))
+      :text {
+        music-status == "playing" ? "" :
+        music-status == "paused"  ? "" : "-"
+      }
+    )
+  )
+)
 
+;; ---------------------------- Music Player ----------------------------
 (defwidget music-player []
-  ;; eventbox agar bisa mendeteksi hover
   (eventbox
     :onhover     "eww update music-control=true"
     :onhoverlost "eww update music-control=false"
+    :halign "fill"       ;; <-- biarkan mengisi lebar penuh
+    :hexpand true        ;; <-- container besar, butuh expand
+    :class "music-container"
     :cursor "pointer"
 
-    ;; Revealer utama → player muncul hanya saat musik aktif
-    (revealer
-      :reveal {music-info != "" ? "true" : "false"}
-      :transition "slideright"
-      :duration "450ms"
+    (box
+      :orientation "v"
+      :class "music-player"
+      :space-evenly false
+      :spacing 5
+      :halign "fill"     ;; <- semua child melebar natural
+      :hexpand true
 
-      (box :orientation "h"
-           :class "music-player"
-           :space-evenly false
-           :halign "center"
-           :valign "center"
-           :spacing 5
+      ;; Info lagu
+      (label
+        :text "${music-info}"
+        :class "music-text"
+        :limit-width "100"
+        :halign "center"
+      )
 
-        ;; -----------------------
-        ;; Kontroller dalam revealer kedua
-        ;; -----------------------
-        (revealer
-          :reveal music-control
-          :transition "slideleft"
-          :duration "300ms"
-          (box :orientation "h" :spacing 5
-            (button :class "music-btn prev-btn" :onclick "mpc prev"  "")
-            (playpause-btn)
-            (button :class "music-btn next-btn" :onclick "mpc next" "")
-          )
+      ;; Kontroller musik
+      (revealer
+        :reveal music-control
+        :transition "slidedown"
+        :duration "300ms"
+
+        (box
+          :orientation "h"
+          :spacing 4
+          :halign "center"
+          :valign "center"
+
+          (button :class "music-btn prev-btn" :onclick "mpc prev"  "")
+          (playpause-btn)
+          (button :class "music-btn next-btn" :onclick "mpc next" "")
         )
-
-        ;; --- Label track tetap tampil ---
-        (label :text "${music-info}"
-               :class "music-text"
-               :limit-width 18
-               :tooltip "${music-info}")
       )
     )
   )
 )
 
+;; ---------------------------- Time/Date ----------------------------
+(defpoll time :interval "1s" `date +%H:%M:%S`)
+(defvar time-hover false)
+
+(defwidget date []
+  (box
+    :orientation "h"
+    :valign "center"
+    :halign "center"
+    :class "date"
+
+    (eventbox
+      :cursor "pointer"
+      :onhover "eww update time-hover=true"
+      :onhoverlost "eww update time-hover=false"
+
+      (box
+        :orientation "h"
+        :valign "center"
+        :halign "center"
+        :spacing 10
+        :space-evenly false
+
+        time
+
+        (revealer
+          :reveal time-hover
+          :transition "slideright"
+          :duration "350ms"
+          (label :text "date +%A")
+        )
+      )
+    )
+  )
+)
+
+;; ---------------------------- Power Widget ----------------------------
+(defwidget power-user []
+  (box
+    :orientation "v"
+    :valign "center"
+    :halign "fill"
+    :spacing 10
+    :hexpand true     ;; <- widget kontainer besar, boleh expand
+    :space-evenly false
+
+    (date)
+  )
+)
+
+;; ---------------------------- Window ----------------------------
 (defwindow distro
   :monitor 0
   :stacking "fg"
   :focusable false
+  :class "distro"
   :geometry (geometry
     :x "0"
     :y "0.3%"
     :width "25%"
-    :height "5%"
-    :anchor "top center")
-  (music-player))
+    :height "15%"
+    :anchor "top center"
+  )
+
+  (box
+    :orientation "v"
+    :spacing 10
+    :class "content-container"
+    :space-evenly false
+    :halign "fill"
+    :valign "center"
+
+    ;; Kedua widget di bawah ini pakai hexpand → layout stabil
+    (power-user)
+    (music-player)
+  )
+)
 

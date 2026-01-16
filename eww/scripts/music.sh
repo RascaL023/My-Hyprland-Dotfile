@@ -6,7 +6,7 @@ get_music_info() {
   artist=$(mpc --format "%artist%" current 2>/dev/null)
 
   if [[ -z "$file" ]]; then
-    echo "No Music"
+    echo "No Music "
     exit
   elif [[ -z "$title" ]]; then
     base="${file%.*}"
@@ -18,7 +18,7 @@ get_music_info() {
 }
 
 get_music_status() {
-  echo "$(mpc status | awk 'NR==2 {print $1}' | tr -d '[]')"
+  echo "$(mpc status | awk 'NR==2 {print $1}' | tr -d '[]' || 'No Music-')"
 }
 
 if [[ $arg == "status" ]]; then
