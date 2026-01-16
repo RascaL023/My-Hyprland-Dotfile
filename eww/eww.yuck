@@ -11,7 +11,7 @@
 ;;########################
 
 (deflisten music-info
-  :initial "No Music "
+  :initial "No Music"
   `bash -c '
     {
       mpc idleloop player | while read e; do ./scripts/music.sh; done &
@@ -20,8 +20,9 @@
     }
 '`)
 (deflisten music-status 
- :initial "-"
- `mpc idleloop player | ./scripts/music.sh 'status'`)
+ ;; :initial "-"
+ "./scripts/music.sh 'status'")
+(deflisten music-cover :initial "-" "scripts/music.sh 'cover'")
 
 
 
@@ -30,12 +31,11 @@
 ;;##################
 
 (defvar music-control false)
-;; (defvar music-initial-status `mpc idleloop player | while read e; do ./scripts/music.sh 'status'; done`)
 
 
 
 ;;###################
-;;##### Widgets #####
+;;##### Modules #####
 ;;###################
 
 (include "modules/profile.yuck")

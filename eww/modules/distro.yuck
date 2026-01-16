@@ -1,10 +1,12 @@
 ;; ============================ Distros =============================
 
-;; ---------------------------- Play/Pause Button ----------------------------
+;; ---------------------------- Play - Pause Button ----------------------------
 (defwidget playpause-btn []
   (button
     :class "music-btn play-btn"
     :onclick "mpc toggle && eww update music-status=$(./scripts/music.sh 'status')"
+    :cursor "pointer"
+
     (label
       :text {
         music-status == "playing" ? "" :
@@ -22,7 +24,7 @@
     :halign "fill"       ;; <-- biarkan mengisi lebar penuh
     :hexpand true        ;; <-- container besar, butuh expand
     :class "music-container"
-    :cursor "pointer"
+    ;; :cursor "pointer"
 
     (box
       :orientation "v"
@@ -31,6 +33,12 @@
       :spacing 5
       :halign "fill"     ;; <- semua child melebar natural
       :hexpand true
+
+      ;; (box :orientation "h")
+      ;; Cover
+      (image :path music-cover
+        :class "cover-song"
+        :image-height 70)
 
       ;; Info lagu
       (label
@@ -52,9 +60,17 @@
           :halign "center"
           :valign "center"
 
-          (button :class "music-btn prev-btn" :onclick "mpc prev"  "")
-          (playpause-btn)
-          (button :class "music-btn next-btn" :onclick "mpc next" "")
+          (eventbox 
+            :cursor "pointer"
+
+            (box
+              :orientation "h"
+
+              (button :class "music-btn prev-btn" :onclick "mpc prev"  "")
+              (playpause-btn)
+              (button :class "music-btn next-btn" :onclick "mpc next" "")
+            )
+          )
         )
       )
     )
@@ -71,18 +87,20 @@
     :valign "center"
     :halign "center"
     :class "date"
+    ;; :space-evenly false
 
     (eventbox
-      :cursor "pointer"
+      ;; :cursor "pointer"
       :onhover "eww update time-hover=true"
       :onhoverlost "eww update time-hover=false"
 
       (box
         :orientation "h"
         :valign "center"
-        :halign "center"
-        :spacing 10
+        :halign "fill"
+        :hexpand true
         :space-evenly false
+        ;; :spacing 10
 
         time
 
@@ -90,6 +108,7 @@
           :reveal time-hover
           :transition "slideright"
           :duration "350ms"
+
           (label :text "date +%A")
         )
       )
@@ -135,7 +154,15 @@
 
     ;; Kedua widget di bawah ini pakai hexpand → layout stabil
     (power-user)
-    (music-player)
+    (box 
+      :orientation "h"
+      :space-evenly false
+      :spacing 10
+      :halign "fill"
+      :valign "center"
+
+      (music-player)
+    )
   )
 )
 
