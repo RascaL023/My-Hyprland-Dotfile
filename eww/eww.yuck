@@ -35,9 +35,10 @@
 
 
 ;;###################
-;;##### Modules #####
+;;##### Windows #####
 ;;###################
 
-(include "modules/profile.yuck")
-(include "modules/distro.yuck")
-(include "modules/try.yuck")
+(include "windows/power-user.yuck")
+(include "windows/distro.yuck")
+(include "windows/try.yuck")
+

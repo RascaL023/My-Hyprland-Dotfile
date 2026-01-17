@@ -1,0 +1,16 @@
+; /* ============== Profile ============== */
+
+(include "widgets/power-buttons.yuck")
+
+(defwidget profile []
+  (box :orientation "v" :class "profile" :spacing 1
+    (box :orientation "h" :spacing 12 :class "profile-box"
+        (image :path "/home/rascal/Pictures/Icons/Me-icon.png"
+        :class "profile-pic"
+        :image-height 70)
+      (label :text "Ra$caL" :class "profile-name" :valign "center")
+    )
+    (power-buttons)
+  )
+)
+

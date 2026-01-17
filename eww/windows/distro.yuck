@@ -1,0 +1,39 @@
+;; ---------------------------- Distro ----------------------------
+
+(include "widgets/music.yuck")
+
+(defwindow distro
+  :monitor 0
+  :stacking "fg"
+  :focusable false
+  :class "distro"
+  :geometry (geometry
+    :x "0"
+    :y "0.3%"
+    :width "25%"
+    :height "15%"
+    :anchor "top center"
+  )
+
+  (box
+    :orientation "v"
+    :spacing 10
+    :class "content-container"
+    :space-evenly false
+    :halign "fill"
+    :valign "center"
+
+    ;; Kedua widget di bawah ini pakai hexpand → layout stabil
+    ;; (power-user)
+    (box 
+      :orientation "h"
+      :space-evenly false
+      :spacing 10
+      :halign "fill"
+      :valign "center"
+
+      (music-player)
+    )
+  )
+)
+
