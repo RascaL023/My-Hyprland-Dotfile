@@ -1,9 +1,48 @@
+;; ---------------------------- Progress Bar Widget ----------------------------
+
+(defwidget music-progress []
+  (box
+    :orientation "v"
+    :space-evenly false
+    :spacing 3
+    :class "music-progress-container"
+
+    ;; Progress bar - ambil angka setelah | kedua
+    (scale
+      :class "music-progress-bar"
+      :min 0
+      :max 100
+      :active true
+      :value {replace(music-progress, '^.*\\|.*\\|', '')}
+      :onchange "mpc seek {}%"
+    )
+    
+    ;; Time labels
+    (box
+      :orientation "h"
+      :space-evenly true
+      :class "music-time"
+      ;; Elapsed - sebelum | pertama
+      (label
+        :text {replace(music-progress, "\\|.*", "")}
+        :halign "start"
+        :class "time-elapsed"
+      )
+      ;; Total - antara | pertama dan kedua
+      (label
+        :text {replace(replace(music-progress, "^[^|]+\\|", ""), "\\|.*", "")}
+        :halign "end"
+        :class "time-total"
+      )
+    )
+  )
+)
+
 ;; ---------------------------- Play - Pause Button ----------------------------
 (defwidget playpause-btn []
   (button
     :class "music-btn play-btn"
     :onclick "mpc toggle && eww update music-status=$(./scripts/music.sh 'status')"
-    :cursor "pointer"
 
     (label
       :text {
@@ -45,6 +84,8 @@
         :limit-width "100"
         :halign "center"
       )
+
+      (music-progress)
 
       ;; Kontroller musik
       (revealer

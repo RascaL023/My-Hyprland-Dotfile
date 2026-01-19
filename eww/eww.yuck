@@ -2,9 +2,7 @@
 ;;###### Polls ######
 ;;###################
 
-;; (defpoll music-stream :interval "1s" "mpc status | awk 'NR==2 {print $1}' | tr -d '[]'")
-
-
+;; -
 
 ;;########################
 ;;###### Listeners #######
@@ -15,15 +13,15 @@
   `bash -c '
     {
       mpc idleloop player | while read e; do ./scripts/music.sh; done &
-      tail -F ~/.local/share/mpd/log -n 2 | while read e; do ./scripts/music.sh; done &
+      tail -F ~/.local/share/mpd/log -n 2 | while read e; do ./scripts/music.sh "info"; done &
       wait
     }
 '`)
-(deflisten music-status 
- ;; :initial "-"
- "./scripts/music.sh 'status'")
-(deflisten music-cover :initial "-" "scripts/music.sh 'cover'")
-
+(deflisten music-status "./scripts/music.sh 'status'")
+(deflisten music-cover "scripts/music.sh 'cover'")
+(deflisten music-progress 
+  :initial "0:00|0:00|0"
+  "while true; do ~/.config/eww/scripts/music.sh 'stream'; sleep 1; done")
 
 
 ;;##################

@@ -69,6 +69,7 @@
   background-color: transparent;
 }
 
+/* -------------- Music --------------*/
 .music-container {
   border-radius: 20px;
   background-color: $PrimaryBg;
@@ -112,6 +113,52 @@
   margin: 0 10px;
 }
 
-.date {
-  background-color: red;
+/* Music progress bar */
+.music-progress-container {
+  padding: 5px 10px;
 }
+
+.music-progress-bar {
+  min-height: 20px;
+  
+  trough {
+    min-height: 4px;
+    min-width: 100px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  highlight {
+    min-height: 4px;
+    border-radius: 2px;
+    /* background: linear-gradient(90deg, #89b4fa, #b4befe); */
+    background-color: #c299ff;
+  }
+  
+  slider {
+    min-width: 7px;
+    min-height: 7px;
+    margin: -1px;
+    border-radius: 50%;
+    background-color: #c983ff;
+    
+    &:hover {
+      background-color: #b4befe;
+      min-width: 9px;
+      min-height: 9px;
+      margin: -4px;
+    }
+  }
+}
+
+.music-time {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0 5px;
+  margin-top: 2px;
+  
+  .time-elapsed, .time-total {
+    font-family: monospace;
+  }
+}
+

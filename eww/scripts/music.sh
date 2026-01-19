@@ -49,6 +49,18 @@ get_music_cover() {
   fi
 }
 
+get_music_stream() {
+  status=$(mpc status 2>/dev/null)
+
+  awk 'NR==2 {
+      if (match($0, /([0-9]+:[0-9]+)\/([0-9]+:[0-9]+) \(([0-9]+)%\)/, arr)) {
+          printf "%s|%s|%s\n", arr[1], arr[2], arr[3]
+      } else {
+          print "0:00|0:00|0"
+      }
+  }' <<< "$status"
+}
+
 
 
 if [[ $arg == "status" ]]; then
@@ -63,6 +75,8 @@ elif [[ $arg == "cover" ]]; then
   mpc idleloop player | while read -r; do
       get_music_cover
   done
+elif [[ $arg == "stream" ]]; then
+  get_music_stream
 else
     get_music_info
 fi

@@ -8,10 +8,8 @@
 		"custom/left_div#1",
 		"hyprland/workspaces",
 		"custom/right_div#1"
-		// "hyprland/window"
 	],
 	"modules-center": [
-		// "hyprland/windowcount",
 		"custom/left_div#2",
 		"temperature",
 		"custom/left_div#3",
@@ -29,11 +27,9 @@
 		"clock#date",
 		"custom/right_div#4",
 		"network",
-		// "custom/system_update",
 		"custom/right_div#5"
 	],
 	"modules-right": [
-		// "mpris",
 		"custom/left_div#6",
 		"group/pulseaudio",
 		"custom/left_div#7",
@@ -52,30 +48,6 @@
 		"format": "󰤄",
 		// "on-click": "kitty ~/.config/waybar/scripts/power-menu.sh",
 		"tooltip": false
-	},
-	"custom/system_update": {
-		// "exec": "~/.config/waybar/scripts/system-update.sh",
-		// "exec-if":
-		// "exec-on-event":
-		// "hide-empty-text":
-		"return-type": "json",
-		"interval": 3600,
-		// "restart-interval":
-		// "signal":
-		"format": "{}",
-		// "format-icons":
-		// "rotate":
-		"min-length": 2,
-		"max-length": 2
-		// "on-click": "kitty ~/.config/waybar/scripts/system-update.sh start"
-		// "on-click-middle":
-		// "on-click-right":
-		// "on-scroll-up":
-		// "on-scroll-down":
-		// "smooth-scrolling-threshold":
-		// "tooltip":
-		// "tooltip-format":
-		// "escape":
 	},
 	"group/theme_switcher": {
 		"orientation": "horizontal",
@@ -122,18 +94,10 @@
 		],
 		"min-length": 7,
 		"max-length": 7,
-		// "smooth-scrolling-threshold":
-		// "reverse-scrolling":
-		// "reverse-mouse-scrolling":
-		// "scroll-step":
-		// "tooltip": false
 		"tooltip-format": "Brightness: {percent}%"
 	},
 	"temperature": {
 		"thermal-zone": 1,
-		// "hwmon-path":
-		// "hwmon-path-abs":
-		// "input-filename":
 		"critical-threshold": 90,
 		"interval": 10,
 		"format-critical": "󰀦 {temperatureC}°C",
@@ -141,16 +105,8 @@
 		"format-icons": [
 			"󱃃", "󰔏", "󱃂"
 		],
-		// "rotate":
 		"min-length": 8,
 		"max-length": 8,
-		// "on-click":
-		// "on-click-middle":
-		// "on-click-right":
-		// "on-scroll-up":
-		// "on-scroll-down":
-		// "smooth-scrolling-threshold":
-		// "tooltip":
 		"tooltip-format": "Temp in Fahrenheit: {temperatureF}°F"
 	},
 	"hyprland/workspaces": {
@@ -165,7 +121,7 @@
 		"persistent-workspaces": {
 			"*": 5
 		},
-		// "persistent-only":
+		// "persistent-only": false,
 		// "show-special":
 		// "special-visible-only":
 		// "sort-by":
@@ -177,21 +133,6 @@
 		// "on-scroll-up":
 		// "on-scroll-down":
 		"cursor": true
-	},
-	"hyprland/window": {
-		"format": "{}",
-		"rewrite": {
-			"^$": "Desktop",
-			"^kitty$": "Terminal",
-			"^~$": "Terminal"
-		},
-		// "separate-outputs":
-		// "icon":
-		// "icon-size":
-		// "min-length":
-		// "max-length":
-		"tooltip": false,
-		"swap-icon-label": false
 	},
 	"clock#time": {
 		// "interval":
@@ -241,7 +182,7 @@
 				"days": "<span alpha='90%'>{}</span>",
 				// "weeks":
 				"weekdays": "<span alpha='80%'><i>{}</i></span>",
-				"today": "<span alpha='100%'><b><u>{}</u></b></span>"
+				"today": "<span alpha='100%'><b><u><i>{}</i></u></b></span>"
 			}
 		},
 		"actions": {
@@ -306,7 +247,7 @@
 		// "on-scroll-up":
 		// "on-scroll-down":
 		// "smooth-scrolling-threshold":
-		"tooltip": false
+		// "tooltip": false
 	},
 	"idle_inhibitor": {
 		"format": "{icon}",
@@ -370,10 +311,7 @@
 		"on-click": "nmcli radio wifi on && notify-send 'Wi-Fi Enabled' -r 1125",
 		// "on-click-middle":
 		"on-click-right": "nmcli radio wifi off && notify-send 'Wi-Fi Disabled' -r 1125",
-		// "on-scroll-up":
-		// "on-scroll-down":
-		// "smooth-scrolling-threshold":
-		// "tooltip":
+		// "tooltip": false,
 		"tooltip-format": "Gateway: {gwaddr}",
 		"tooltip-format-ethernet": "Interface: {ifname}",
 		"tooltip-format-wifi": "Network: {essid}\nIP Addr: {ipaddr}/{cidr}\nStrength: {signalStrength}%\nFrequency: {frequency} GHz",
@@ -417,8 +355,8 @@
 		"on-click": "~/.config/waybar/scripts/volume.sh output mute",
 		// "on-click-middle":
 		// "on-click-right":
-		"on-scroll-up": "~/.config/waybar/scripts/volume.sh output raise",
-		"on-scroll-down": "~/.config/waybar/scripts/volume.sh output lower",
+		// "on-scroll-up": "~/.config/waybar/scripts/volume.sh output raise",
+		// "on-scroll-down": "~/.config/waybar/scripts/volume.sh output lower",
 		// "smooth-scrolling-threshold":
 		// "tooltip":
 		"tooltip-format": "Output Device: {desc}"
@@ -447,8 +385,6 @@
 		"on-click": "~/.config/waybar/scripts/volume.sh input mute",
 		// "on-click-middle":
 		// "on-click-right":
-		"on-scroll-up": "~/.config/waybar/scripts/volume.sh input raise",
-		"on-scroll-down": "~/.config/waybar/scripts/volume.sh input lower",
 		// "smooth-scrolling-threshold":
 		// "tooltip":
 		"tooltip-format": "Input Device: {desc}"
