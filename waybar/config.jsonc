@@ -21,7 +21,7 @@
 		"custom/distro",
 		"custom/right_div#2",
 		"custom/right_inv#1",
-		"idle_inhibitor",
+		// "idle_inhibitor",
 		"clock#time",
 		"custom/right_div#3",
 		"clock#date",
@@ -258,7 +258,7 @@
 		// "rotate":
 		"min-length": 3,
 		"max-length": 3,
-		// "on-click":
+		"on-click": "~/.config/hypr/sources/scripts/idle-toggle.sh",
 		// "on-click-middle":
 		// "on-click-right":
 		// "on-scroll-up":

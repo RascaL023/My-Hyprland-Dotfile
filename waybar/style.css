@@ -97,6 +97,7 @@ button.active label {
 }
 #clock.time {
 	padding-right: 6px;
+  padding-left: 4px;
 	background-color: @time;
 }
 #custom-right_div.3 {
