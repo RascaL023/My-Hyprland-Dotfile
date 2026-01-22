@@ -1,0 +1,16 @@
+* {
+    bg-col:  #1e1e2e;
+    bg-selected-col: #45475a;
+    alt-bg-selected-col :#C299FF;
+    bg-transparent-col: rgba(0, 0, 0, 0.45);
+
+    fg-col: #cdd6f4;
+    fg-selected-col: #f38ba8;
+    alt-fg-selected-col: #f38ba8;
+
+    accent-1: #C299FF;
+    border-col: #a855f7;
+
+    app-width: 45%;
+    wallpaper-width: 100%;
+}
