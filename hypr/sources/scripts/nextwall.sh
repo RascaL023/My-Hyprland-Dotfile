@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Folder wallpaper
-DIR="$HOME/Pictures/Wallpaper/Purplish"
+DIR="$HOME/Pictures/Wallpaper"
 
 # Ambil semua file gambar (pakai array bash, lebih aman dari ls)
 shopt -s nullglob  # Kalau gak ada file, array kosong (gak error)
