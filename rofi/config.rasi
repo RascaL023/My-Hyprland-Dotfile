@@ -12,6 +12,4 @@ configuration {
     // drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
 }
 
-// @theme "~/.config/rofi/themes/apps.rasi"
-
 // //@theme "/nix/store/za31vpq7l1ypzhyp7zpnl1i9mxr7csgs-rofi-1.7.9+wayland1/share/rofi/themes/fullscreen-preview.rasi"

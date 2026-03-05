@@ -1,4 +1,4 @@
-@import "../source.rasi"
+@import "/home/rascal/Documents/PUB/Code/Go/Theme-Engine/output/domain/gtk/rasi/source.rasi"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;
@@ -38,10 +38,11 @@ prompt {
 }
 
 entry {
-    padding: 6px;
+    padding: 7px 10px;
     placeholder: "Search...";
     text-color: @fg-col;
-    background-color: @bg-col;
+    background-color: @surface-1;
+    border-radius: 8px;
 }
 
 listview {
@@ -50,7 +51,7 @@ listview {
     padding: 11px 10px;
     columns: 2;
     spacing: 5px 10px;
-    background-color: #33294D;
+    background-color: @surface-1;
     border-radius: 10px;
 }
 

@@ -1,4 +1,4 @@
-@import "../source.rasi"
+@import "/home/rascal/Documents/PUB/Code/Go/Theme-Engine/output/domain/gtk/rasi/source.rasi"
 
 element-text, element-icon, mode-switcher {
     background-color: inherit;

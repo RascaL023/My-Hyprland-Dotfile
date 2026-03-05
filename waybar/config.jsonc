@@ -43,6 +43,7 @@
 		"format": "",
 		"tooltip": false,
 		"on-click": "eww open --toggle distro"
+        // "on-click-right": "eww update distro_open=false"
 	},
 	"custom/power_menu": {
 		"format": "󰤄",

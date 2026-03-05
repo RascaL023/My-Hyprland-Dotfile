@@ -68,8 +68,8 @@
       :class "music-player"
       :space-evenly false
       :spacing 5
-      :halign "fill"     ;; <- semua child melebar natural
-      :hexpand true
+      ;; :halign "fill"     ;; <- semua child melebar natural
+      ;; :hexpand true
 
       ;; (box :orientation "h")
       ;; Cover

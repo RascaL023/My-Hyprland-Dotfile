@@ -1,5 +1,7 @@
-@define-color window-bg             rgba(10, 10, 24, 0.8); 
+@import url("/home/rascal/Documents/PUB/Code/Go/Theme-Engine/output/domain/gtk/css/source.css");
 
-@define-color button-bg             rgba(0, 0, 0, 0.6);
-@define-color button-focus-bg       #BB86FC;
-@define-color button-focus-border   #BB86FC;
+@define-color window-bg             @alpha-crust;
+
+@define-color button-bg             @tr-crust;
+@define-color button-focus-bg       @overlay2;
+@define-color button-focus-border   @overlay2;

@@ -5,7 +5,7 @@ DIR="$HOME/Pictures/Wallpaper"
 
 # Ambil semua file gambar (pakai array bash, lebih aman dari ls)
 shopt -s nullglob  # Kalau gak ada file, array kosong (gak error)
-FILES=("$DIR"/*.{jpg,jpeg,png,webp})
+FILES=("$DIR"/*.{jpg,jpeg,png,webp,gif})
 
 # Cek apakah ada file
 if [[ ${#FILES[@]} -eq 0 ]]; then

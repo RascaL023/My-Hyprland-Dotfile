@@ -49,20 +49,19 @@
 }
 
 .power-btn:hover {
-  background-color: $ButtonHover1;
-  color: $Text3;
+  background-color: $ButtonHoverBg1;
+  color: $ButtonHoverFg1;
 }
 
 .power-btn:active {
-  background-color: $ButtonActive1;
+  /* background-color: $ButtonActive1; */
 }
 
 /* ============================= DISTRO ============================= */
 .distro {
-  background-color: $DistroBg;
+  background-color: $PrimaryBg;
   border-radius: 18px;
   padding: 30px
-  /* padding: 30px 0 10px 0; */
 }
 
 .content-container {
@@ -79,22 +78,22 @@
   background-color: $SecondaryBg;
   border-radius: 20px;
   padding: 12px 20px;
-  color: $DistroText1;
+  color: $Text3;
   font-size: 11pt;
-  font-family: $SecondaryFont;
+  /* font-family: $SecondaryFont; */
 }
 
 .music-btn {
-  color: $MusicButton;
+  color: $ButtonFg;
   padding: 4px 10px;
   transition: 150ms;
   border-radius: 8px;
   &:hover {
-    color: $MusicButtonHover;
-    background-color: $MusicButtonHoverBg;
+    color: $ButtonHoverFg2;
+    background-color: $ButtonHoverBg2;
   }
   &:active {
-    background-color: $MusicButtonActive;
+    background-color: $ButtonActive;
   }
 }
 
@@ -108,7 +107,7 @@
 }
 
 .music-text {
-  color: $DistroText2;
+  color: $Text1;
   font-weight: 500;
   margin: 0 10px;
 }
@@ -125,14 +124,14 @@
     min-height: 4px;
     min-width: 100px;
     border-radius: 2px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: alpha($teritary-surface, 0.5);
   }
   
   highlight {
     min-height: 4px;
     border-radius: 2px;
     /* background: linear-gradient(90deg, #89b4fa, #b4befe); */
-    background-color: #c299ff;
+    background-color: $primary-accent;
   }
   
   slider {
@@ -140,10 +139,10 @@
     min-height: 7px;
     margin: -1px;
     border-radius: 50%;
-    background-color: #c983ff;
+    background-color: mix($primary-accent, $secondary-accent, 0.5);
     
     &:hover {
-      background-color: #b4befe;
+      background-color: $secondary-text;
       min-width: 9px;
       min-height: 9px;
       margin: -4px;
@@ -153,7 +152,7 @@
 
 .music-time {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.6);
+  color: alpha($teritary-text, 0.8);
   padding: 0 5px;
   margin-top: 2px;
   

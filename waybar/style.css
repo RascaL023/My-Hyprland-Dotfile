@@ -1,6 +1,7 @@
-@import url("source.css");
+@import url("/home/rascal/Documents/PUB/Code/Go/Theme-Engine/output/domain/gtk/css/source.css");
+/* @import url("source.css"); */
 
-@define-color main-br @subtext-0;
+@define-color main-br @text;
 @define-color main-bg @crust;
 @define-color main-fg @text;
 
