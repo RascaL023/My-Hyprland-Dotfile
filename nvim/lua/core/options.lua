@@ -1,0 +1,21 @@
+local opt = vim.opt
+
+-- basic ui settings
+opt.termguicolors = true
+opt.number = true
+opt.relativenumber = true
+opt.cursorline = true
+opt.signcolumn = "yes"
+opt.scrolloff = 4
+opt.wrap = true
+
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
+opt.expandtab = true
+opt.smartindent = true
+opt.autoindent = true
+opt.undofile = true --- location: ~/.local/state/nvim/undo/
+vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+vim.env.PATH = vim.env.PATH .. ":" .. vim.fn.stdpath("data") .. "/mason/bin"
+
