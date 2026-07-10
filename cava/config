@@ -20,9 +20,9 @@ integral = 100
 
 [color]
 gradient = 1
-gradient_color_1 = "#4B0082"
-gradient_color_2 = "#8A2BE2"
-gradient_color_3 = "#BA55D3"
-gradient_color_4 = "#DA70D6"
-gradient_color_5 = "#D8BFD9"
+gradient_color_1 = "#0a0a0a"
+gradient_color_2 = "#1f1f1f"
+gradient_color_3 = "#2a2a2a"
+gradient_color_4 = "#353535"
+gradient_color_5 = "#8E6C77"
 
