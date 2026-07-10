@@ -1,21 +1,21 @@
 @import "/home/rascal/Documents/PUB/Code/Go/Theme-Engine/output/domain/gtk/scss/source/source";
 @import "/home/rascal/Documents/PUB/Code/Go/Theme-Engine/output/domain/gtk/scss/source/function";
 
-$PrimaryBg:       rgba($crust, 0.999);
-$SecondaryBg:     $mantle;
+$PrimaryBg:       rgba($layer-crust, 0.999);
+$SecondaryBg:     $layer-mantle;
 
-$Text1: $primary-text;
-$Text2: $secondary-text;
-$Text3: $teritary-text;
+$Text1: $text-primary;
+$Text2: $text-secondary;
+$Text3: $text-muted;
 
-$ButtonFg: $secondary-accent;
-$ButtonActive: alpha($primary-accent, 0.25);
+$ButtonFg: $accent-secondary;
+$ButtonActive: alpha($accent-primary, 0.25);
 
-$ButtonHoverBg1: $secondary-accent;
-$ButtonHoverBg2: rgba($primary-text, 0.15);
+$ButtonHoverBg1: $accent-secondary;
+$ButtonHoverBg2: rgba($text-primary, 0.15);
 
-$ButtonHoverFg1: $base;
-$ButtonHoverFg2: $primary-accent;
+$ButtonHoverFg1: $layer-base;
+$ButtonHoverFg2: $accent-primary;
 
 $PrimaryFont: "JetBrainsMono NF";
 $SecondaryFont: "Cantarell";

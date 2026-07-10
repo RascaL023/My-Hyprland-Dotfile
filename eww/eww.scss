@@ -124,14 +124,14 @@
     min-height: 4px;
     min-width: 100px;
     border-radius: 2px;
-    background-color: alpha($teritary-surface, 0.5);
+    background-color: alpha($layer-surface-raised, 0.5);
   }
   
   highlight {
     min-height: 4px;
     border-radius: 2px;
     /* background: linear-gradient(90deg, #89b4fa, #b4befe); */
-    background-color: $primary-accent;
+    background-color: $accent-primary;
   }
   
   slider {
@@ -139,10 +139,10 @@
     min-height: 7px;
     margin: -1px;
     border-radius: 50%;
-    background-color: mix($primary-accent, $secondary-accent, 0.5);
+    background-color: mix($accent-primary, $accent-secondary, 0.5);
     
     &:hover {
-      background-color: $secondary-text;
+      background-color: $text-secondary;
       min-width: 9px;
       min-height: 9px;
       margin: -4px;
@@ -152,7 +152,7 @@
 
 .music-time {
   font-size: 10px;
-  color: alpha($teritary-text, 0.8);
+  color: alpha($text-muted, 0.8);
   padding: 0 5px;
   margin-top: 2px;
   
