@@ -1,26 +1,25 @@
 @import url("/home/rascal/Documents/PUB/Code/Go/Theme-Engine/output/domain/gtk/css/source.css");
 /* @import url("source.css"); */
 
-@define-color main-br @text;
-@define-color main-bg @crust;
-@define-color main-fg @text;
+@define-color main-br @text-primary;
+@define-color main-bg @layer-crust;
+@define-color main-fg @text-primary;
 
-@define-color accent @accent1;
-@define-color hover-bg alpha(@accent2, 0.15);
-@define-color hover-fg @accent2;
-@define-color outline alpha(@accent2, 0.5);
+@define-color accent @accent-primary;
+@define-color hover-bg alpha(@accent-secondary, 0.15);
+@define-color hover-fg @accent-secondary;
+@define-color outline alpha(@accent-secondary, 0.5);
 
-@define-color workspaces @mantle;
-@define-color temperature @mantle;
-@define-color memory @base;
-@define-color cpu @surface0;
-@define-color time @surface0;
-@define-color date @base;
-@define-color tray @mantle;
-@define-color volume @mantle;
-@define-color backlight @base;
-@define-color battery @surface0;
-
+@define-color workspaces @layer-mantle;
+@define-color temperature @layer-mantle;
+@define-color memory @layer-base;
+@define-color cpu @layer-surface;
+@define-color time @layer-surface;
+@define-color date @layer-base;
+@define-color tray @layer-mantle;
+@define-color volume @layer-mantle;
+@define-color backlight @layer-base;
+@define-color battery @layer-surface;
 
 * {
 	/* font-family: "0xProto Nerd Font"; */
@@ -213,9 +212,9 @@ button.active label {
 	color: @hover-fg;
 }
 
-.warning { color: @warning; }
-.critical { color: @critical; }
-.charging { color: @charging; }
+.warning { color: @status-warning; }
+.critical { color: @status-critical; }
+.charging { color: @status-info; }
 .muted { color: @hover-fg; }
 
 #custom-left_div,
