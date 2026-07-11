@@ -16,7 +16,7 @@ return {
             -- height = 0.85,
           },
           winblend = 10,
-          borderchars = { "═", "┃", "═", "┃", "┏", "┓", "┛", "┗" },
+          borderchars = { "━", "┃", "━", "┃", "┏", "┓", "┛", "┗" },
         },
         pickers = {
           find_files = {
