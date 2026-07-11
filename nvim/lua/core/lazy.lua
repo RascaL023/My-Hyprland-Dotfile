@@ -55,5 +55,8 @@ require("lazy").setup({
   { import = "plugins.kulala"},
 
   -- undotree
-  { import = "plugins.undotree"}
+  { import = "plugins.undotree"},
+
+  -- zen
+  { import = "plugins.zen"}
 })

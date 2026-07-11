@@ -175,6 +175,9 @@ map("n", "<leader>lt", function()
   end
 end, { desc = "LSP: Toggle buffer" })
 
+-- Zen mode
+map("n", "<leader>z", "<cmd>ZenMode<CR>", { desc = "Zen mode toggle" })
+
 -- Git ignore toggle
 map("n", "<leader>gi", function()
   require("nvim-tree.api").tree.toggle_gitignore_filter()
