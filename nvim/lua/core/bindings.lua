@@ -1,6 +1,13 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+local function zen_close()
+  local ok, view = pcall(require, "zen-mode.view")
+  if ok and view.is_open() then
+    require("zen-mode").close()
+  end
+end
+
 map("n", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
@@ -84,6 +91,7 @@ map("v", "<C-/>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.v
 
 -- Close active
 map("n", "<leader>w", function()
+  zen_close()
   if vim.bo.modified then
     local input = vim.fn.input("Save before quit? (y/n): ")
     if input == "y" then
@@ -98,6 +106,7 @@ end)
 
 -- Close file + buffer
 map("n", "<leader>q", function()
+  zen_close()
   if vim.bo.modified then
     local input = vim.fn.input("Save changes? (y/n): ")
     if input == "y" then

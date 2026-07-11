@@ -1,7 +1,6 @@
 local colors = require("core.theme").colors
 
-vim.api.nvim_set_hl(0, "ZenNormal", { fg = colors.fg, bg = colors.bg })
-vim.api.nvim_set_hl(0, "ZenBorder", { fg = colors.border })
+vim.api.nvim_set_hl(0, "ZenNormal", { fg = colors.fg, bg = "none" })
 
 return {
   {
@@ -9,16 +8,16 @@ return {
     cmd = "ZenMode",
     opts = {
       window = {
-        width = 100,
-        height = 1,
-        backdrop = 0.95,
+        width = 0.85,
+        height = 0.96,
+        backdrop = 0,
         options = {
           signcolumn = "no",
           number = false,
           relativenumber = false,
           cursorcolumn = false,
           foldcolumn = "0",
-          winhighlight = "Normal:ZenNormal,FloatBorder:ZenBorder",
+          winhighlight = "Normal:ZenNormal",
         },
       },
       plugins = {
@@ -49,7 +48,7 @@ return {
         color = { "Normal", colors.fg },
         term_bg = colors.bg_dark,
       },
-      context = 12,
+      context = 5,
       treesitter = true,
     },
   },
