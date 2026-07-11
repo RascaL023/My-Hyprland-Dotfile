@@ -21,6 +21,9 @@ require("lazy").setup({
   -- treesitter
   { import = "plugins.treesitter" },
 
+  -- markdown preview
+  { import = "plugins.markdown" },
+
   -- telescope
   { import = "plugins.telescope" },
 

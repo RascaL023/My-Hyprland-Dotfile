@@ -1,6 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    dependencies = { "OXY2DEV/markview.nvim" },
     event = { "BufReadPost", "BufNewFile" },
 
     config = function()
@@ -18,6 +19,8 @@ return {
           "yaml",
           "go", "gomod", "gosum", "gowork",
           "svelte",
+          "markdown",
+          "markdown_inline",
         },
 
         highlight = { enable = true },

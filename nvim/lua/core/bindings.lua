@@ -187,6 +187,9 @@ end, { desc = "LSP: Toggle buffer" })
 -- Zen mode
 map("n", "<leader>z", "<cmd>ZenMode<CR>", { desc = "Zen mode toggle" })
 
+-- Markdown preview toggle
+map("n", "<leader>mm", "<CMD>Markview toggle<CR>", { desc = "Toggle markdown preview" })
+
 -- Git ignore toggle
 map("n", "<leader>gi", function()
   require("nvim-tree.api").tree.toggle_gitignore_filter()
