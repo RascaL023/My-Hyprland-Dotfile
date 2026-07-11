@@ -8,6 +8,8 @@ opt.cursorline = true
 opt.signcolumn = "yes"
 opt.scrolloff = 4
 opt.wrap = true
+opt.linebreak = true
+opt.breakindent = true
 
 opt.tabstop = 4
 opt.shiftwidth = 4
