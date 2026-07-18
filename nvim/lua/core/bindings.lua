@@ -186,10 +186,14 @@ map("n", "<leader>r", function()
   end
 end, { desc = "Toggle text wrap" })
 
+-- Cheatsheet
+map("n", "<leader>?", function()
+  require("core.cheatsheet").show()
+end, { desc = "Cheatsheet: cari keymap" })
+
 -- Git ignore toggle
 map("n", "<leader>gi", function()
   require("nvim-tree.api").tree.toggle_gitignore_filter()
-  vim.notify("Git ignore toggled", vim.log.levels.INFO)
 end, { desc = "Toggle gitignore in NvimTree" })
 
 

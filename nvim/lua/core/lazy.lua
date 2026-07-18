@@ -51,9 +51,6 @@ require("lazy").setup({
   -- extra
   { import = "plugins.extra"},
 
-  -- ai agent
-  { import = "plugins.gen"},
-
   -- kulala
   { import = "plugins.kulala"},
 
