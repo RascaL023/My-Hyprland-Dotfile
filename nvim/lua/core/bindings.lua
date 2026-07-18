@@ -1,5 +1,4 @@
 local map = vim.keymap.set
-local opts = { noremap = true, silent = true }
 
 local function zen_close()
   local ok, view = pcall(require, "zen-mode.view")
@@ -8,69 +7,69 @@ local function zen_close()
   end
 end
 
-map("n", "<Space>", "<Nop>", opts)
+map("n", "<Space>", "<Nop>", { desc = "Disable default space" })
 vim.g.mapleader = " "
 
--- Tools 
-map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
-map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
-map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
-map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
+-- Tools
+map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "NvimTree: toggle" })
+map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Telescope: cari file" })
+map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Telescope: cari teks" })
+map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Telescope: daftar buffer" })
+map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Telescope: cari help" })
 
 -- Copy - Paste
-map("v", "<C-c>", '"+yI')
-map("n", "<C-v>", '"+p')
+map("v", "<C-c>", '"+yI', { desc = "Copy ke clipboard" })
+map("n", "<C-v>", '"+p', { desc = "Paste dari clipboard" })
 
 -- Selections
-map("i", "<S-Left>",  "<Esc>gh<Left>")
-map("i", "<S-Right>", "<Esc>gh<Right>")
-map("i", "<S-Up>",    "<Esc>gh<Up>")
-map("i", "<S-Down>",  "<Esc>gh<Down>")
-map("v", "<S-Left>", "<Left>")
-map("v", "<S-Right>", "<Right>")
-map("v", "<S-Up>", "<Up>")
-map("v", "<S-Down>", "<Down>")
-map({ "n", "i" }, "<S-End>", "<Esc>v<End>")
-map({ "n", "i" }, "<S-Home>", "<Esc>v<Home>")
+map("i", "<S-Left>", "<Esc>gh<Left>", { desc = "Select left" })
+map("i", "<S-Right>", "<Esc>gh<Right>", { desc = "Select right" })
+map("i", "<S-Up>", "<Esc>gh<Up>", { desc = "Select up" })
+map("i", "<S-Down>", "<Esc>gh<Down>", { desc = "Select down" })
+map("v", "<S-Left>", "<Left>", { desc = "Extend left" })
+map("v", "<S-Right>", "<Right>", { desc = "Extend right" })
+map("v", "<S-Up>", "<Up>", { desc = "Extend up" })
+map("v", "<S-Down>", "<Down>", { desc = "Extend down" })
+map({ "n", "i" }, "<S-End>", "<Esc>v<End>", { desc = "Select to end" })
+map({ "n", "i" }, "<S-Home>", "<Esc>v<Home>", { desc = "Select to home" })
 map({ "n", "i" }, "<C-a>", function()
   vim.cmd("normal! ggVG")
-end, opts)
-map("n", "<leader>a", "ggVG\"+y", opts) -- select all + copy
+end, { desc = "Select all" })
+map("n", "<leader>a", "ggVG\"+y", { desc = "Select all + copy" })
 
 -- Save
-map({ "n", "v" }, "<C-s>", ":w<CR>")
-map("i", "<C-s>", "<Esc>:w<CR>i")
+map({ "n", "v" }, "<C-s>", ":w<CR>", { desc = "Save file" })
+map("i", "<C-s>", "<Esc>:w<CR>i", { desc = "Save file (insert)" })
 
 -- Undo - Redo
-map("n", "<C-z>", "u", opts)
-map("i", "<C-z>", "<Esc>ua", opts)
-map("v", "<C-z>", "<Esc>ugv", opts)
-map("n", "<C-y>", "<C-r>", opts)
-map("i", "<C-y>", "<Esc><C-r>a", opts)
-map("v", "<C-y>", "<Esc><C-r>gv", opts)
+map("n", "<C-z>", "u", { desc = "Undo" })
+map("i", "<C-z>", "<Esc>ua", { desc = "Undo (insert)" })
+map("v", "<C-z>", "<Esc>ugv", { desc = "Undo (visual)" })
+map("n", "<C-y>", "<C-r>", { desc = "Redo" })
+map("i", "<C-y>", "<Esc><C-r>a", { desc = "Redo (insert)" })
+map("v", "<C-y>", "<Esc><C-r>gv", { desc = "Redo (visual)" })
 
 -- Delete Per Kata
-map("i", "<C-BS>", "<C-w>", opts)
-map("i", "<C-H>", "<C-w>", opts)
-map("i", "<C-Del>", "<C-o>dw", opts)
+map("i", "<C-BS>", "<C-w>", { desc = "Hapus kata ke kiri" })
+map("i", "<C-H>", "<C-w>", { desc = "Hapus kata ke kiri (alt)" })
+map("i", "<C-Del>", "<C-o>dw", { desc = "Hapus kata ke kanan" })
 
--- Move selected
-map("n", "<A-Up>", ":m .-2<CR>==", opts)
-map("n", "<A-Down>", ":m .+1<CR>==", opts)
-map("v", "<A-Up>", ":m '<-2<CR>gv=gv", opts)
-map("v", "<A-Down>", ":m '>+1<CR>gv=gv", opts)
-map("i", "<A-Down>", "<Esc>:m .+1<CR>==gi", opts)
-map("i", "<A-Up>", "<Esc>:m .-2<CR>==gi", opts)
+-- Move baris
+map("n", "<A-Up>", ":m .-2<CR>==", { desc = "Pindah baris ke atas" })
+map("n", "<A-Down>", ":m .+1<CR>==", { desc = "Pindah baris ke bawah" })
+map("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Pindah seleksi ke atas" })
+map("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Pindah seleksi ke bawah" })
+map("i", "<A-Down>", "<Esc>:m .+1<CR>==gi", { desc = "Pindah baris ke bawah (insert)" })
+map("i", "<A-Up>", "<Esc>:m .-2<CR>==gi", { desc = "Pindah baris ke atas (insert)" })
 
 -- Comment toggle
 map({ "n", "i" }, "<C-/>", function()
   require("Comment.api").toggle.linewise.current()
-end, {})
+end, { desc = "Toggle comment" })
 
-map("v", "<C-/>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>i", {})
+map("v", "<C-/>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>i", { desc = "Toggle comment (visual)" })
 
--- Close active
+-- Close window
 map("n", "<leader>w", function()
   zen_close()
   if vim.bo.modified then
@@ -83,9 +82,9 @@ map("n", "<leader>w", function()
   else
     vim.cmd("q")
   end
-end)
+end, { desc = "Tutup window" })
 
--- Close file + buffer
+-- Close buffer
 map("n", "<leader>q", function()
   zen_close()
   if vim.bo.modified then
@@ -101,33 +100,30 @@ map("n", "<leader>q", function()
   else
     vim.cmd("bdelete")
   end
-end, { noremap = true, silent = true })
+end, { desc = "Tutup buffer" })
 
+-- Switch buffer
+map("n", "<Tab>", ":bnext<CR>", { desc = "Buffer next" })
+map("n", "<S-Tab>", ":bprevious<CR>", { desc = "Buffer previous" })
 
--- Switch file
-map("n", "<Tab>", ":bnext<CR>", { silent = true })
-map("n", "<S-Tab>", ":bprevious<CR>", { silent = true })
-
--- Window Switcher
-map("n", "<A-Left>", "<C-w>h")
-map("n", "<A-Down>", "<C-w>j")
-map("n", "<A-Up>", "<C-w>k")
-map("n", "<A-Right>", "<C-w>l")
-map("n", "<C-h>", "<C-w>h", { desc = "Window left" })
-map("n", "<C-j>", "<C-w>j", { desc = "Window down" })
-map("n", "<C-k>", "<C-w>k", { desc = "Window up" })
-map("n", "<C-l>", "<C-w>l", { desc = "Window right" })
+-- Window navigation
+map("n", "<A-Left>", "<C-w>h", { desc = "Window: kiri" })
+map("n", "<A-Down>", "<C-w>j", { desc = "Window: bawah" })
+map("n", "<A-Up>", "<C-w>k", { desc = "Window: atas" })
+map("n", "<A-Right>", "<C-w>l", { desc = "Window: kanan" })
+map("n", "<C-h>", "<C-w>h", { desc = "Window: kiri" })
+map("n", "<C-j>", "<C-w>j", { desc = "Window: bawah" })
+map("n", "<C-k>", "<C-w>k", { desc = "Window: atas" })
+map("n", "<C-l>", "<C-w>l", { desc = "Window: kanan" })
 -- Resizing
-map("n", "<C-Up>",    "<C-w>+", { desc = "Increase height" })
-map("n", "<C-Down>",  "<C-w>-", { desc = "Decrease height" })
-map("n", "<C-Left>",  "<C-w><", { desc = "Decrease width" })
-map("n", "<C-Right>", "<C-w>>", { desc = "Increase width" })
-
-
+map("n", "<C-Up>", "<C-w>+", { desc = "Window: tambah tinggi" })
+map("n", "<C-Down>", "<C-w>-", { desc = "Window: kurangi tinggi" })
+map("n", "<C-Left>", "<C-w><", { desc = "Window: kurangi lebar" })
+map("n", "<C-Right>", "<C-w>>", { desc = "Window: tambah lebar" })
 
 -- Indent & unindent 
-map("v", "<Tab>", ">gv", { silent = true })
-map("v", "<S-Tab>", "<gv", { silent = true })
+map("v", "<Tab>", ">gv", { desc = "Indent" })
+map("v", "<S-Tab>", "<gv", { desc = "Unindent" })
 
 -- Tab Management
 map("n", "<leader>tt", function()
@@ -137,15 +133,15 @@ map("n", "<leader>tt", function()
     vim.cmd("tcd " .. dir)
     vim.cmd("Telescope find_files")
   end
-end, { noremap = true, silent = true })
+end, { desc = "Tab: buka folder baru" })
 
--- NvimTree root find
+-- NvimTree at path
 map("n", "<leader>tf", function()
   local path = vim.fn.input("Open NvimTree at: ", vim.fn.getcwd() .. "/")
   if path ~= "" then
     vim.cmd("NvimTreeOpen " .. path)
   end
-end, { desc = "NvimTree: Open at path" })
+end, { desc = "NvimTree: buka di path" })
 
 -- LSP Toggle
 map("n", "<leader>lt", function()
@@ -163,15 +159,15 @@ map("n", "<leader>lt", function()
     vim.cmd("edit") -- reload buffer → LSP auto-attach
     vim.notify("LSP re-attached", vim.log.levels.INFO)
   end
-end, { desc = "LSP: Toggle buffer" })
+end, { desc = "LSP: toggle buffer" })
 
 -- Zen mode
 map("n", "<leader>z", "<cmd>ZenMode<CR>", { desc = "Zen mode toggle" })
 
--- Markdown preview toggle
-map("n", "<leader>mm", "<CMD>Markview toggle<CR>", { desc = "Toggle markdown preview" })
+-- Markdown preview
+map("n", "<leader>mm", "<CMD>Markview toggle<CR>", { desc = "Markdown: toggle preview" })
 
--- Toggle text wrap
+-- Text wrap
 map("n", "<leader>r", function()
   if vim.wo.wrap then
     vim.wo.wrap = false
@@ -191,39 +187,20 @@ map("n", "<leader>?", function()
   require("core.cheatsheet").show()
 end, { desc = "Cheatsheet: cari keymap" })
 
+map("n", "<leader>??", function()
+  require("telescope.builtin").keymaps({
+    modes = { "n", "v", "i", "x" },
+  })
+end, { desc = "Keymaps: semua (termasuk default)" })
+
 -- Git ignore toggle
 map("n", "<leader>gi", function()
   require("nvim-tree.api").tree.toggle_gitignore_filter()
-end, { desc = "Toggle gitignore in NvimTree" })
+end, { desc = "NvimTree: toggle gitignore" })
 
-
--- Definition
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
-  silent = true,
-  noremap = true,
-  desc = "Go to definition",
-})
-
-vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {
-  silent = true,
-  noremap = true,
-  desc = "Go to declaration",
-})
-
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {
-  silent = true,
-  noremap = true,
-  desc = "Go to implementation",
-})
-
-vim.keymap.set("n", "gr", vim.lsp.buf.references, {
-  silent = true,
-  noremap = true,
-  desc = "Go to references",
-})
-
-vim.keymap.set("n", "K", vim.lsp.buf.hover, {
-  silent = true,
-  noremap = true,
-  desc = "Hover documentation",
-})
+-- LSP definitions
+map("n", "gd", vim.lsp.buf.definition, { desc = "LSP: go to definition" })
+map("n", "gD", vim.lsp.buf.declaration, { desc = "LSP: go to declaration" })
+map("n", "gi", vim.lsp.buf.implementation, { desc = "LSP: go to implementation" })
+map("n", "gr", vim.lsp.buf.references, { desc = "LSP: go to references" })
+map("n", "K", vim.lsp.buf.hover, { desc = "LSP: hover docs" })
