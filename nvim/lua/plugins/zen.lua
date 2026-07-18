@@ -8,7 +8,7 @@ return {
     cmd = "ZenMode",
     opts = {
       window = {
-        width = 0.75,
+        width = 0.7,
         height = 0.96,
         backdrop = 0,
         options = {
@@ -44,11 +44,11 @@ return {
     "folke/twilight.nvim",
     opts = {
       dimming = {
-        alpha = 0.3,
+        alpha = 0.2,
         color = { "Normal", colors.fg },
         term_bg = colors.bg_dark,
       },
-      context = 5,
+      context = 0,
       treesitter = true,
     },
   },
