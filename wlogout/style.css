@@ -10,18 +10,18 @@ window {
 }
 
 button {
-  border-radius: 23px;
-	background-color: @button-bg;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 25%;
-  min-width: 200px;
-  min-height: 150px;
+    border-radius: 23px;
+    background-color: @button-bg;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    min-width: 200px;
+    min-height: 150px;
 }
 
 button:focus, button:active, button:hover {
 	background-color: @button-focus-bg;
-  outline-style: none;
+    outline-style: none;
 	border-color: @button-focus-border;
 }
 
