@@ -21,27 +21,8 @@ map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
 -- Copy - Paste
 map("v", "<C-c>", '"+yI')
 map("n", "<C-v>", '"+p')
--- map("i", "<C-v>", '<ESC>"+pI', opts)
--- map("i", "<C-c>", function()
---   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>yyi", true, false, true), "n", true)
--- end, opts)
--- map("i", "<C-v>", function()
---   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>p==i", true, false, true), "n", true)
--- end, opts)
 
 -- Selections
--- map("n", "<S-Left>", "v<Left>")
--- map("n", "<S-Right>", "v<Right>")
--- map("n", "<S-Up>", "v<Up>")
--- map("n", "<S-Down>", "v<Down>")
--- map("i", "<S-Left>", "<Esc>v<Left>")
--- map("i", "<S-Right>", "<Esc>v<Right>")
--- map("i", "<S-Up>", "<Esc>v<Up>")
--- map("i", "<S-Down>", "<Esc>v<Down>")
--- map("n", "<S-Left>",  "gh<Left>")
--- map("n", "<S-Right>", "gh<Right>")
--- map("n", "<S-Up>",    "gh<Up>")
--- map("n", "<S-Down>",  "gh<Down>")
 map("i", "<S-Left>",  "<Esc>gh<Left>")
 map("i", "<S-Right>", "<Esc>gh<Right>")
 map("i", "<S-Up>",    "<Esc>gh<Up>")
@@ -190,9 +171,25 @@ map("n", "<leader>z", "<cmd>ZenMode<CR>", { desc = "Zen mode toggle" })
 -- Markdown preview toggle
 map("n", "<leader>mm", "<CMD>Markview toggle<CR>", { desc = "Toggle markdown preview" })
 
+-- Toggle text wrap
+map("n", "<leader>r", function()
+  if vim.wo.wrap then
+    vim.wo.wrap = false
+    vim.wo.linebreak = false
+    vim.wo.breakindent = false
+    vim.notify("Wrap OFF", vim.log.levels.INFO)
+  else
+    vim.wo.wrap = true
+    vim.wo.linebreak = true
+    vim.wo.breakindent = true
+    vim.notify("Wrap ON", vim.log.levels.INFO)
+  end
+end, { desc = "Toggle text wrap" })
+
 -- Git ignore toggle
 map("n", "<leader>gi", function()
   require("nvim-tree.api").tree.toggle_gitignore_filter()
+  vim.notify("Git ignore toggled", vim.log.levels.INFO)
 end, { desc = "Toggle gitignore in NvimTree" })
 
 
