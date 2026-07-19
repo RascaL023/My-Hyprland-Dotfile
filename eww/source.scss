@@ -8,8 +8,8 @@ $Text1: $text-primary;
 $Text2: $text-secondary;
 $Text3: $text-muted;
 
-$ButtonFg: $accent-secondary;
-$ButtonActive: alpha($accent-primary, 0.25);
+$ButtonFg: $accent-primary;
+$ButtonActive: alpha($accent-secondary, 0.25);
 
 $ButtonHoverBg1: $accent-secondary;
 $ButtonHoverBg2: rgba($text-primary, 0.15);
