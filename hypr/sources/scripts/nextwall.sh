@@ -33,7 +33,7 @@ done
 LIST="${LIST%\\n}"  # <-- Ini yang penting! Hapus \n di akhir
 
 # Panggil rofi
-SELECTED=$(echo -e "$LIST" | rofi -theme "$HOME/.config/rofi/themes/wallpaper.rasi" -dmenu -p " Wallpaper ")
+SELECTED=$(echo -e "$LIST" | rofi -theme "$HOME/.config/rofi/themes/wallpaper.rasi" -dmenu -i -p " Wallpaper ")
 
 # Kalau gak ada yang dipilih, exit
 [[ -z "$SELECTED" ]] && exit 0
