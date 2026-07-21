@@ -35,11 +35,17 @@ map({ "n", "i" }, "<S-Home>", "<Esc>v<Home>", { desc = "Select to home" })
 map({ "n", "i" }, "<C-a>", function()
   vim.cmd("normal! ggVG")
 end, { desc = "Select all" })
-map("n", "<leader>a", "ggVG\"+y", { desc = "Select all + copy" })
+map("n", "<leader>c", "ggVG\"+y", { desc = "Select all + copy (dipindah ke <leader>c)" })
 
 -- Save
 map({ "n", "v" }, "<C-s>", ":w<CR>", { desc = "Save file" })
 map("i", "<C-s>", "<Esc>:w<CR>i", { desc = "Save file (insert)" })
+
+-- AIChat: ask selected text to aichat
+map("v", "<leader>a", function()
+  require("core.aichat").ask()
+end, { desc = "AI: Tanyakan kode terpilih ke aichat (popup float)" })
+
 
 -- Undo - Redo
 map("n", "<C-z>", "u", { desc = "Undo" })
