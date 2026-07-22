@@ -11,7 +11,7 @@ set -uo pipefail
 config="${XDG_CONFIG_HOME:-$HOME/.config}"
 dotfile="$HOME/.dotfile"
 tools_file="$dotfile/tools.list"
-state_file="$dotfile/.synchronizer/state"
+state_file="$dotfile/.synchronizer/state.tmp"
 
 # ---------------------------------------------------------------------------
 # Logging
