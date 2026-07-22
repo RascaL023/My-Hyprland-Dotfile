@@ -41,10 +41,13 @@ map("n", "<leader>c", "ggVG\"+y", { desc = "Select all + copy (dipindah ke <lead
 map({ "n", "v" }, "<C-s>", ":w<CR>", { desc = "Save file" })
 map("i", "<C-s>", "<Esc>:w<CR>i", { desc = "Save file (insert)" })
 
--- AIChat: ask selected text to aichat
+-- AIChat
 map("v", "<leader>a", function()
   require("core.aichat").ask()
-end, { desc = "AI: Tanyakan kode terpilih ke aichat (popup float)" })
+end, { desc = "AI Chat: tanya kode terpilih (terminal float)" })
+map("n", "<leader>at", function()
+  require("core.aichat").toggle()
+end, { desc = "AI Chat: toggle terminal" })
 
 
 -- Undo - Redo
@@ -142,7 +145,7 @@ map("n", "<leader>tt", function()
 end, { desc = "Tab: buka folder baru" })
 
 -- NvimTree at path
-map("n", "<leader>tf", function()
+map("n", "<leader>tp", function()
   local path = vim.fn.input("Open NvimTree at: ", vim.fn.getcwd() .. "/")
   if path ~= "" then
     vim.cmd("NvimTreeOpen " .. path)
@@ -210,3 +213,6 @@ map("n", "gD", vim.lsp.buf.declaration, { desc = "LSP: go to declaration" })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "LSP: go to implementation" })
 map("n", "gr", vim.lsp.buf.references, { desc = "LSP: go to references" })
 map("n", "K", vim.lsp.buf.hover, { desc = "LSP: hover docs" })
+
+-- Snacks
+map("n", "<leader>lg", function() require("snacks").lazygit() end, { desc = "Lazygit" })
