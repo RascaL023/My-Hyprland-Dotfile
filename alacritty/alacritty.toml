@@ -1,0 +1,7 @@
+[general]
+import = [
+    "~/.config/alacritty/binds.toml",
+    # "/home/rascal/Documents/PUB/Code/Go/Theme-Engine/output/tools/alacritty/ui.toml"
+    "~/.config/alacritty/dracula.toml"
+]
+
