@@ -47,7 +47,7 @@
 	},
 	"custom/power_menu": {
 		"format": "󰤄",
-		// "on-click": "kitty ~/.config/waybar/scripts/power-menu.sh",
+		"on-click": "exec ~/.myenv/script/theme-switcher.sh",
 		"tooltip": false
 	},
 	"group/theme_switcher": {

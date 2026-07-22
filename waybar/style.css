@@ -23,7 +23,8 @@
 
 * {
 	/* font-family: "0xProto Nerd Font"; */
-	font-family: "Maple Mono NF ExtraBold";
+	/* font-family: "Maple Mono NF ExtraBold"; */
+	font-family: "Monocraft Nerd Font";
 	font-weight: bold;
 	font-size: 9.2px;
 	color: @main-fg;
