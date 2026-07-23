@@ -17,6 +17,7 @@ Configs live in this repo (`~/.dotfile`) and are symlinked back into
 |----------|------------------------|
 | kitty    | Terminal emulator      |
 | foot     | Terminal emulator      |
+| alacritty| Terminal emulator      |
 | cava     | Audio visualizer       |
 | hypr     | Hyprland compositor    |
 | waybar   | Status bar             |
