@@ -80,7 +80,7 @@
   padding: 12px 20px;
   color: $Text3;
   font-size: 11pt;
-  /* font-family: $SecondaryFont; */
+  font-family: $SecondaryFont;
 }
 
 .music-btn {
@@ -157,7 +157,7 @@
   margin-top: 2px;
   
   .time-elapsed, .time-total {
-    font-family: monospace;
+    font-family: $SecondaryFont;
   }
 }
 
