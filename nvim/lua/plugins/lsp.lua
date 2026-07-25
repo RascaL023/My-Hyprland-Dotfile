@@ -25,6 +25,25 @@ return {
     -- From System
     -- =================================
 
+    vim.lsp.config.nixd = {
+      default_config = {
+        cmd = { "nixd" },
+        filetypes = { "nix" },
+        capabilities = capabilities,
+        settings = {
+          nixd = {
+            nix = {
+              flake = {
+                autoEvalInputs = true, -- Sangat berguna kalau kamu pakai Nix Flakes
+              },
+            },
+            -- Opsional: limit memory usage kalau nixd makan RAM kebanyakan
+            -- maxMemoryMB = 2048, 
+          },
+        },
+      },
+    }vim.lsp.enable("nixd")
+
     vim.lsp.config.clangd = {
       default_config = {
         cmd = {
