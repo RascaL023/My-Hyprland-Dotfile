@@ -10,7 +10,10 @@ return {
     dependencies = { "neovim/nvim-lspconfig" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = {}
+        ensure_installed = {},
+        automatic_enable = {
+          exclude = { "jdtls" }
+        }
       })
     end
   }

@@ -170,8 +170,8 @@ return {
       }
     }vim.lsp.enable("hyprls")
 
-    -- Nonaktifkan jdtls dari nvim-lspconfig — dikelola oleh nvim-jdtls via ftplugin/java.lua
-    vim.lsp.config.jdtls = nil
+    -- Defence: pastikan jdtls tidak auto-start — dikelola oleh nvim-jdtls via ftplugin/java.lua
+    pcall(vim.lsp.enable, "jdtls", false)
 
   end,
 }
