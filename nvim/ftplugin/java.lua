@@ -1,20 +1,32 @@
 local jdtls = require("jdtls")
 
 -- Workspace untuk tiap project
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 local workspace_dir = vim.fn.stdpath("data") .. "/jdtls-workspace/" .. project_name
 
 -- Autocomplete capabilities
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Root dir = folder project java
-local root_dir = require("jdtls.setup").find_root({
-  "mvnw",
-  "gradlew",
-  "pom.xml",
-  "build.gradle",
-  ".git",
-})
+-- Prioritaskan .git agar root konsisten di multi-module
+local root_dir = (vim.fs.find(".git", {
+  upward = true,
+  type = "directory",
+  limit = 1,
+}) or {})[1]
+
+if root_dir then
+  root_dir = vim.fs.dirname(root_dir)
+end
+
+if not root_dir then
+  root_dir = require("jdtls.setup").find_root({
+    "mvnw",
+    "gradlew",
+    "pom.xml",
+    "build.gradle",
+  })
+end
 
 -- Path ke Lombok jar (sesuaikan dengan lokasi di sistem Anda)
 -- Untuk Mason biasanya ada di: ~/.local/share/nvim/mason/packages/jdtls/
