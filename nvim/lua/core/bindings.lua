@@ -216,3 +216,14 @@ map("n", "K", vim.lsp.buf.hover, { desc = "LSP: hover docs" })
 
 -- Snacks
 map("n", "<leader>lg", function() require("snacks").lazygit() end, { desc = "Lazygit" })
+
+-- NvimTree Refresh
+map("n", "<leader>tr", "<cmd>NvimTreeRefresh<CR>", {
+    desc = "Refresh NvimTree",
+})
+
+-- Remove search highlight
+map("n", "<Esc>", "<cmd>nohlsearch<CR><Esc>", {
+    silent = true,
+    desc = "Clear search highlight",
+})
