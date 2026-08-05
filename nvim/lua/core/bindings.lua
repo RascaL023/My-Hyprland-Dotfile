@@ -1,5 +1,18 @@
 local map = vim.keymap.set
 
+-- state per-proses: ft -> { managed = { [server_name] = true }, nonmanaged = boolean }
+local lsp_disabled_ft = {}
+
+-- Mencegat vim.lsp.start: filetype yang di-disable tidak pernah attach
+local lsp_start = vim.lsp.start
+vim.lsp.start = function(config, opts)
+  local bufnr = opts and opts.bufnr or vim.api.nvim_get_current_buf()
+  if lsp_disabled_ft[vim.bo[bufnr].filetype] then
+    return nil
+  end
+  return lsp_start(config, opts)
+end
+
 local function zen_close()
   local ok, view = pcall(require, "zen-mode.view")
   if ok and view.is_open() then
@@ -169,6 +182,57 @@ map("n", "<leader>lt", function()
     vim.notify("LSP re-attached", vim.log.levels.INFO)
   end
 end, { desc = "LSP: toggle buffer" })
+
+-- LSP Toggle Permanen (per filetype, session-only)
+map("n", "<leader>lT", function()
+  local ft = vim.bo.filetype
+
+  if ft == "" then
+    vim.notify("LSP: no filetype on current buffer", vim.log.levels.WARN)
+    return
+  end
+
+  local state = lsp_disabled_ft[ft]
+
+  if state then
+    -- ENABLE kembali: hapus blokir DULU agar wrapper tak memblokir re-attach
+    lsp_disabled_ft[ft] = nil
+    for name in pairs(state.managed) do
+      vim.lsp.enable(name, true)
+    end
+    if state.nonmanaged then
+      vim.api.nvim_exec_autocmds("FileType", { buffer = 0, modeline = false })
+    end
+    vim.notify("LSP enabled for filetype: " .. ft, vim.log.levels.INFO)
+  else
+    -- DISABLE: matikan semua server untuk filetype ini (FORCE, bukan graceful)
+    local managed = {}
+    for name in pairs(vim.lsp._enabled_configs) do
+      local config = vim.lsp.config[name]
+      if config and vim.tbl_contains(config.filetypes or {}, ft) then
+        managed[name] = true
+        vim.lsp.enable(name, false) -- hapus dari _enabled_configs (anti auto-start)
+        for _, client in ipairs(vim.lsp.get_clients({ name = name })) do
+          client:stop(true) -- SIGTERM: graceful shutdown meninggalkan zombie
+        end
+      end
+    end
+    -- force-stop client non-managed (mis. jdtls lewat ftplugin) yg masih nempel
+    local nonmanaged = false
+    for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+      if vim.bo[bufnr].filetype == ft then
+        for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+          if not managed[client.name] then
+            nonmanaged = true
+            client:stop(true)
+          end
+        end
+      end
+    end
+    lsp_disabled_ft[ft] = { managed = managed, nonmanaged = nonmanaged }
+    vim.notify("LSP disabled for filetype: " .. ft, vim.log.levels.WARN)
+  end
+end, { desc = "LSP: toggle permanen (per filetype)" })
 
 -- Zen mode
 map("n", "<leader>z", "<cmd>ZenMode<CR>", { desc = "Zen mode toggle" })
