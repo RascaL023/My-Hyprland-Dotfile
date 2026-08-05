@@ -25,7 +25,21 @@ vim.g.mapleader = " "
 
 -- Tools
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "NvimTree: toggle" })
-map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Telescope: cari file" })
+local telescope_show_ignored = false
+
+local function open_find_files()
+  require("telescope.builtin").find_files({ no_ignore = telescope_show_ignored })
+end
+
+map("n", "<leader>ff", open_find_files, { desc = "Telescope: cari file" })
+map("n", "<leader>fF", function()
+  telescope_show_ignored = not telescope_show_ignored
+  if telescope_show_ignored then
+    vim.notify("find_files: tampilkan file ignored git", vim.log.levels.INFO)
+  else
+    vim.notify("find_files: sembunyikan file ignored git", vim.log.levels.WARN)
+  end
+end, { desc = "Telescope: toggle file ignored git" })
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Telescope: cari teks" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Telescope: daftar buffer" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Telescope: cari help" })
