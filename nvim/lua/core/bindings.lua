@@ -43,6 +43,14 @@ end, { desc = "Telescope: toggle file ignored git" })
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Telescope: cari teks" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Telescope: daftar buffer" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Telescope: cari help" })
+map("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", { desc = "Telescope: cari diagnostik" })
+map("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Telescope: cari function/type dalam file" })
+map("n", "<leader>fS", "<cmd>Telescope lsp_workspace_symbols<CR>", { desc = "Telescope: cari simbol dalam workspace" })
+map("n", "<leader>fc", "<cmd>Telescope colorscheme<CR>", { desc = "Telescope: preview colorscheme" })
+map("n", "<leader>fr", "<cmd>Telescope resume<CR>", { desc = "Telescope: resume telescope" })
+
+map("n", "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "Telescope: cari file git diff" })
+map("n", "<leader>gf", "<cmd>Telescope git_files<CR>", { desc = "Telescope: cari file yang di track git" })
 
 -- Copy - Paste
 map("v", "<C-c>", '"+yI', { desc = "Copy ke clipboard" })
