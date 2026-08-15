@@ -24,7 +24,11 @@ return {
         },
 
         highlight = { enable = true },
-        indent = { enable = true },
+        indent = {
+          enable = true,
+          -- HTML pakai HtmlIndent() bawaan Vim agar konsisten 2 spasi (treesitter buggy di html)
+          disable = { "html" },
+        },
 
         incremental_selection = {
           enable = true,

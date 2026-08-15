@@ -88,6 +88,14 @@ return {
       },
     }vim.lsp.enable("intelephense")
 
+    vim.lsp.config.html = {
+      default_config = {
+        cmd = { "vscode-html-language-server", "--stdio" },
+        filetypes = { "html", "htm" },
+        capabilities = capabilities,
+      },
+    }vim.lsp.enable("html")
+
     vim.lsp.config.jsonls = {
       default_config = {
         cmd = { "vscode-json-languageserver", "--stdio" },
