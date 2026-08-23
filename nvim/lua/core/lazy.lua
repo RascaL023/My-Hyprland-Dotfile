@@ -58,5 +58,8 @@ require("lazy").setup({
   { import = "plugins.undotree"},
 
   -- zen
-  { import = "plugins.zen"}
+  { import = "plugins.zen"},
+
+  -- smear cursor (SmoothCursor dinonaktifkan sementara)
+  { import = "plugins.smear_cursor" },
 })
