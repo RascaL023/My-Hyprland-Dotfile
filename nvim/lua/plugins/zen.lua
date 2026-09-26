@@ -9,7 +9,7 @@ return {
     opts = {
       window = {
         width = 0.7,
-        height = 0.96,
+        height = 0.8,
         backdrop = 0,
         options = {
           signcolumn = "no",
@@ -48,7 +48,7 @@ return {
         color = { "Normal", colors.fg },
         term_bg = colors.bg_dark,
       },
-      context = 0,
+      context = 20,
       treesitter = true,
     },
   },
