@@ -7,6 +7,32 @@ else
   M.colors = {}
 end
 
+-- markview's palette groups derive from Normal.bg, but the theme is transparent
+-- (Normal.bg = "none"), so feed it the theme engine background instead.
+vim.g.markview_dark_bg = M.colors.bg
+vim.g.markview_light_bg = M.colors.bg
+
+-- markview's inline-code background ignores those globals (it is hardcoded to
+-- #1E1E2E when Normal.bg is unset), so set the group directly from the palette.
+-- Re-apply on ColorScheme because :colorscheme clears highlight groups.
+local function apply_markview_highlights()
+  if not M.colors.bg then
+    return
+  end
+  vim.api.nvim_set_hl(0, "MarkviewInlineCode", {
+    bg = M.colors.terminal_black,
+    fg = M.colors.green,
+  })
+end
+
+apply_markview_highlights()
+
+local markview_augroup = vim.api.nvim_create_augroup("ThemeEngineMarkview", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = markview_augroup,
+  callback = apply_markview_highlights,
+})
+
 M.icons = {
   lualine_left = "",
   lualine_right = "",
