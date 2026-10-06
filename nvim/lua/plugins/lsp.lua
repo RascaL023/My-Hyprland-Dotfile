@@ -110,6 +110,32 @@ return {
       },
     }vim.lsp.enable("jsonls")
 
+    vim.lsp.config.rust_analyzer = {
+        default_config = {
+            --  Perintah yang dieksekusi, mencari biner via PATH
+            cmd = { "rust_analyzer" },
+
+            --  Aktif untuk file jenis rust saja
+            filetypes = { "rust" },
+
+            -- Cari root dir via file
+            root_dir = function (fname)
+                return vim.fs.dirname(vim.fs.find(
+                    { "Cargo.toml", "rust-project.json", ".git" },
+                    { upward = true, path = fname }
+                )[1])
+            end,
+            capabilities = capabilities,
+
+            settings = {
+                ["rust_analyzer"] = {
+                    -- Optional settings
+                    -- checkOnSave = {}
+                }
+            }
+        }
+    }vim.lsp.enable("rust_analyzer")
+
 
     -- =================================
     -- From Mason
