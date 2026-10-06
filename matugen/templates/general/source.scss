@@ -1,0 +1,130 @@
+////////////////////////////// Need improvements
+// Generated with Matugen //
+//////////////////////////////
+// Manual edit is not recomended,
+// Except for testing.
+// Semantik mengikuti general/alacritty.toml & general/kitty.conf:
+// tanpa custom_colors, hanya Material roles + fixed/container.
+
+//////////
+// Base //
+//////////
+
+$foreground: {{ colors.on_surface.default.hex }};
+$background: {{ colors.surface.default.hex }};
+
+////////////
+// Normal //
+////////////
+// black = surface (sama seperti color0 alacritty/kitty)
+// red = error, green = tertiary, yellow = secondary,
+// blue = primary, magenta = tertiary_fixed_dim, cyan = secondary_fixed_dim,
+// white = on_surface (sama seperti color7)
+
+$black: {{ colors.surface.default.hex }};
+$red: {{ colors.error.default.hex }};
+$green: {{ colors.tertiary.default.hex }};
+$yellow: {{ colors.secondary.default.hex }};
+$blue: {{ colors.primary.default.hex }};
+$magenta: {{ colors.tertiary_fixed_dim.default.hex }};
+$cyan: {{ colors.secondary_fixed_dim.default.hex }};
+$white: {{ colors.on_surface.default.hex }};
+
+////////////
+// Bright //
+////////////
+// Sama seperti [colors.bright] alacritty / color8-15 kitty.
+
+$black-bright: {{ colors.surface_variant.default.hex }};
+$red-bright: {{ colors.error_container.default.hex | blend: {{ colors.primary.default.hex }}, 0.6 | lighten: 40.0 }};
+$green-bright: {{ colors.tertiary_container.default.hex }};
+$yellow-bright: {{ colors.secondary_container.default.hex }};
+$blue-bright: {{ colors.primary_container.default.hex }};
+$magenta-bright: {{ colors.tertiary_fixed.default.hex }};
+$cyan-bright: {{ colors.secondary_fixed.default.hex }};
+$white-bright: {{ colors.on_surface.default.hex }};
+
+////////////
+// Accent //
+////////////
+// accent-primary = primary (active/focus, sama seperti blue)
+// accent-secondary = tertiary_fixed_dim (sama seperti magenta)
+// accent-on = on_primary (pasangan primary, jamin kontras)
+
+$accent-primary: {{ colors.primary.default.hex }};
+$accent-secondary: {{ colors.tertiary_fixed_dim.default.hex }};
+$accent-on: {{ colors.on_primary.default.hex }};
+
+//////////
+// Text //
+//////////
+// primary = on_surface, secondary = on_surface_variant,
+// muted = outline, link = primary (sama seperti blue),
+// visited = secondary_container (kandidat muted, VERIFY visual)
+
+$text-primary: {{ colors.on_surface.default.hex }};
+$text-secondary: {{ colors.on_surface_variant.default.hex }};
+$text-muted: {{ colors.outline.default.hex }};
+$text-link: {{ colors.primary.default.hex }};
+$text-visited: {{ colors.secondary_container.default.hex }};
+
+///////////
+// Layer //
+///////////
+// Tangga surface: lowest < low < container < high < highest (§4).
+
+$layer-base: {{ colors.surface.default.hex }};
+$layer-mantle: {{ colors.surface_container_low.default.hex }};
+$layer-crust: {{ colors.surface_container_lowest.default.hex }};
+$layer-surface: {{ colors.surface_container.default.hex }};
+$layer-surface-raised: {{ colors.surface_container_high.default.hex }};
+$layer-surface-overlay: {{ colors.surface_container_highest.default.hex }};
+
+////////////
+// Border //
+////////////
+// default = surface_container_high (sama seperti layer-surface-raised,
+// sesuai contoh awal), active = primary, medium = outline_variant.
+
+$border-default: {{ colors.surface_container_high.default.hex }};
+$border-active: {{ colors.primary.default.hex }};
+$border-medium: {{ colors.outline_variant.default.hex }};
+
+////////////
+// Status //
+////////////
+// success = tertiary (sama seperti green), warning = secondary
+// (sama seperti yellow), error = error (sama seperti red),
+// critical = rumus red-bright, info = primary (sama seperti blue).
+
+$status-success: {{ colors.tertiary.default.hex }};
+$status-warning: {{ colors.secondary.default.hex }};
+$status-error: {{ colors.error.default.hex }};
+$status-critical: {{ colors.error_container.default.hex | blend: {{ colors.primary.default.hex }}, 0.6 | lighten: 40.0 }};
+$status-info: {{ colors.primary.default.hex }};
+
+////////////////////
+// Foreground dim //
+////////////////////
+
+$fg-dim: {{ colors.outline.default.hex }};
+$fg-dim-muted: {{ colors.on_surface_variant.default.hex }};
+$fg-disabled: {{ colors.outline_variant.default.hex }};
+
+////////////////////////
+// Background khusus //
+////////////////////////
+// conflict = secondary_container (surface peringatan),
+// disk-usage = surface_container_high (meter_bg ala resep btop).
+
+$bg-conflict: {{ colors.secondary_container.default.hex }};
+$bg-disk-usage: {{ colors.surface_container_high.default.hex }};
+
+///////////
+// Fonts //
+///////////
+// Hardcode seperti font di alacritty.toml / kitty.conf.
+
+$font-system: "JetBrainsMono Nerd Font";
+$font-widget: "Monocraft Nerd Font";
+$font-terminal: "MapleMono NF";

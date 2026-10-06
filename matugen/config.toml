@@ -1,0 +1,29 @@
+[config]
+
+[templates.test]
+input_path      = "~/.config/matugen/templates/test.conf"
+output_path     = "~/.config/matugen/generated.bak/test.conf"
+post_hook       = "echo Success"
+
+[templates.alacritty]
+input_path      = "~/.config/matugen/templates/general/alacritty.toml"
+output_path     = "~/.dotfile/alacritty/theme.toml"
+post_hook       = "mkdir -p ~/.dotfile/alacritty"
+
+[templates.kitty]
+input_path      = "~/.config/matugen/templates/general/kitty.conf"
+output_path     = "~/.dotfile/kitty/source/ui.conf"
+post_hook       = "pkill -SIGUSR1 kitty"
+
+[templates.lazygit]
+input_path      = "~/.config/matugen/templates/general/lazygit.yml"
+output_path     = "~/.config/lazygit/config.yml"
+# post_hook       = "pkill -SIGUSR1 kitty"
+
+[templates.scss]
+input_path      = "~/.config/matugen/templates/general/source.scss"
+output_path     = "~/.config/matugen/generated.bak/source.scss"
+
+[templates.rasi]
+input_path      = "~/.config/matugen/templates/general/source.rasi"
+output_path     = "~/.config/matugen/generated.bak/source.rasi"
