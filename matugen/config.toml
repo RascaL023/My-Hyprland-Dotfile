@@ -7,23 +7,22 @@ post_hook       = "echo Success"
 
 [templates.alacritty]
 input_path      = "~/.config/matugen/templates/general/alacritty.toml"
-output_path     = "~/.dotfile/alacritty/theme.toml"
-post_hook       = "mkdir -p ~/.dotfile/alacritty"
+output_path     = "~/.myenv/theme/generated/live.bak/alacritty/theme.toml"
+post_hook       = "mkdir -p ~/.myenv/theme/generated/live.bak/alacritty"
 
 [templates.kitty]
 input_path      = "~/.config/matugen/templates/general/kitty.conf"
-output_path     = "~/.dotfile/kitty/source/ui.conf"
+output_path     = "~/.myenv/theme/generated/live.bak/kitty/theme.conf"
 post_hook       = "pkill -SIGUSR1 kitty"
 
 [templates.lazygit]
 input_path      = "~/.config/matugen/templates/general/lazygit.yml"
-output_path     = "~/.config/lazygit/config.yml"
-# post_hook       = "pkill -SIGUSR1 kitty"
+output_path     = "~/.myenv/theme/generated/live.bak/lazygit/config.yml"
 
 [templates.scss]
 input_path      = "~/.config/matugen/templates/general/source.scss"
-output_path     = "~/.config/matugen/generated.bak/source.scss"
+output_path     = "~/.myenv/theme/generated/live.bak/general/scss/source/_source.scss"
 
 [templates.rasi]
 input_path      = "~/.config/matugen/templates/general/source.rasi"
-output_path     = "~/.config/matugen/generated.bak/source.rasi"
+output_path     = "~/.myenv/theme/generated/live.bak/general/rasi/source.rasi"
