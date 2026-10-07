@@ -3,13 +3,13 @@
 - [x] Alacritty
 - [x] Kitty
 - [x] Lazygit
-- [ ] Rofi
+- [x] Rofi
+- [ ] Nvim
 - [ ] Eww
 - [ ] Hyprland
 - [ ] Niri
 - [ ] Cava?
 - [ ] Yazi
-- [ ] Nvim
 - [ ] GTK-based
 - [ ] Firefox
 - [ ] Foot
