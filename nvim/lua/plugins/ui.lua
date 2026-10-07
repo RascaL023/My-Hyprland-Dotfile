@@ -11,16 +11,9 @@ return {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {
-      transparent = true,
-      style = "night",
-      on_colors = function(c)
-        require("core.theme").tokyonight_colors(c)
-      end,
-      on_highlights = function(hl, c)
-        require("core.theme").tokyonight_highlights(hl, c)
-      end,
-    },
+    opts = function()
+      return require("core.theme").tokyonight_opts()
+    end,
     config = function(_, opts)
       require("tokyonight").setup(opts)
       vim.cmd.colorscheme("tokyonight")
@@ -64,8 +57,6 @@ return {
           tail = { cursor = theme.icons.cursor_tail, texthl = "SmoothCursorTail" },
         },
       })
-
-      theme.apply_smoothcursor_highlights()
     end,
   },
   {
@@ -80,12 +71,6 @@ return {
         priority = 3,
       },
     },
-    config = function(_, opts)
-      require("mini.indentscope").setup(opts)
-      local colors = require("core.theme").colors
-      vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = colors.purple })
-      vim.api.nvim_set_hl(0, "MiniIndentscopeSymbolOff", { fg = colors.magenta })
-    end,
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "alpha", "dashboard", "NvimTree", "telescope", "help" },

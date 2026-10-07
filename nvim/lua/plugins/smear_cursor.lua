@@ -29,6 +29,6 @@ return {
     particle_gravity = -50,
     min_distance_emit_particles = 0,
     legacy_computing_symbols_support = true,
-    transparent_bg_fallback_color = "#303030",
+    transparent_bg_fallback_color = require("core.theme").colors.bg_highlight,
   },
 }

@@ -1,7 +1,5 @@
 local colors = require("core.theme").colors
 
-vim.api.nvim_set_hl(0, "ZenNormal", { fg = colors.fg, bg = "none" })
-
 return {
   {
     "folke/zen-mode.nvim",

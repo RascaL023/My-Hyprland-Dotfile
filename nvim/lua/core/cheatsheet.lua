@@ -1,13 +1,13 @@
 local M = {}
 
 local mode_info = {
-  n = { label = "N", hl = "CheatModeN", fg = "#89b4fa" },
-  v = { label = "V", hl = "CheatModeV", fg = "#a6e3a1" },
-  x = { label = "X", hl = "CheatModeX", fg = "#94e2d5" },
-  i = { label = "I", hl = "CheatModeI", fg = "#f9e2af" },
-  o = { label = "O", hl = "CheatModeO", fg = "#f38ba8" },
-  t = { label = "T", hl = "CheatModeT", fg = "#f5c2e7" },
-  s = { label = "S", hl = "CheatModeS", fg = "#cba6f7" },
+  n = { label = "N", hl = "CheatModeN" },
+  v = { label = "V", hl = "CheatModeV" },
+  x = { label = "X", hl = "CheatModeX" },
+  i = { label = "I", hl = "CheatModeI" },
+  o = { label = "O", hl = "CheatModeO" },
+  t = { label = "T", hl = "CheatModeT" },
+  s = { label = "S", hl = "CheatModeS" },
 }
 
 local function infer_desc(map)
@@ -66,10 +66,6 @@ function M.show()
   if not ok then
     vim.notify("Telescope gak tersedia", vim.log.levels.ERROR)
     return
-  end
-
-  for _, info in pairs(mode_info) do
-    vim.api.nvim_set_hl(0, info.hl, { fg = info.fg, bold = true, default = true })
   end
 
   local pickers = require("telescope.pickers")

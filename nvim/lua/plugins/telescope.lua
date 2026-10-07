@@ -33,8 +33,6 @@ return {
           },
         },
       })
-
-      require("core.theme").apply_telescope_highlights()
     end,
   }
   

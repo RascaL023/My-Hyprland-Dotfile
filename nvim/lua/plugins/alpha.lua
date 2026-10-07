@@ -4,9 +4,6 @@ return {
   opts = function()
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
-    local theme = require("core.theme")
-
-    theme.apply_alpha_highlights()
 
     ------------------------------------------------------
     -- BIG ANIME ASCII
