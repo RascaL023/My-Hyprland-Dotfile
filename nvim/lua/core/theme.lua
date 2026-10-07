@@ -355,11 +355,23 @@ function M.tokyonight_opts()
   return {
     style = "night",
     transparent = true,
+    -- Kunci cache tokyonight tidak memuat Util.bg/Util.fg, jadi cache lama bisa
+    -- menyajikan grup yang sudah di-blend dengan basis style asli. Nonaktifkan
+    -- agar grup selalu dibangun ulang dengan basis palet kita.
+    cache = false,
 
     on_colors = function(c)
       for key, value in pairs(M.colors) do
         c[key] = type(value) == "table" and vim.deepcopy(value) or value
       end
+
+      -- tokyonight menangkap Util.bg/Util.fg dari palet mentah SEBELUM
+      -- on_colors dipanggil, sehingga setiap Util.blend_bg/blend_fg() tanpa
+      -- basis eksplisit akan mem-blend ke style asli (night), bukan ke palet
+      -- kita. Arahkan ulang agar grup turunan tetap on-theme.
+      local Util = require("tokyonight.util")
+      Util.bg = c.bg
+      Util.fg = c.fg
 
       -- Guard: style "night" mewarisi palet "storm", jadi kunci storm yang
       -- tidak ditimpa akan bocor sebagai warna tokyonight asli.
@@ -477,6 +489,24 @@ function M.apply_plugin_highlights()
   set(0, "CheatModeO", { fg = c.red, bold = true, default = true })
   set(0, "CheatModeT", { fg = c.accent2, bold = true, default = true })
   set(0, "CheatModeS", { fg = c.purple, bold = true, default = true })
+
+  -- Grup bawaan Neovim yang tidak didefinisikan tokyonight (kalau dibiarkan,
+  -- warnanya jatuh ke default Neovim dan lepas dari palet).
+  set(0, "DiagnosticOk", { fg = c.green2 })
+  set(0, "DiagnosticUnderlineOk", { sp = c.green2, underline = true })
+  set(0, "DiagnosticDeprecated", { sp = c.dark3, strikethrough = true })
+
+  set(0, "Added", { fg = c.green2 })
+  set(0, "Changed", { fg = c.blue2 })
+  set(0, "Removed", { fg = c.red1 })
+
+  set(0, "FloatShadow", { bg = c.bg_dark1 })
+  set(0, "FloatShadowThrough", { bg = c.bg_dark1 })
+
+  set(0, "NvimInternalError", { fg = c.bg, bg = c.red })
+  set(0, "RedrawDebugClear", { fg = c.bg, bg = c.yellow })
+  set(0, "RedrawDebugComposed", { fg = c.bg, bg = c.green2 })
+  set(0, "RedrawDebugRecompose", { fg = c.bg, bg = c.red })
 end
 
 -- :colorscheme menghapus highlight group, jadi pasang ulang. Autocmd didaftarkan

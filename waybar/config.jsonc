@@ -48,7 +48,7 @@
 	"custom/power_menu": {
 		"format": "󰤄",
 		// "on-click": "exec ~/.myenv/script/theme-switcher.sh",
-		"on-click": "exec ~/.myenv/script/theme-picker.sh",
+		"on-click": "exec ~/.myenv/script/theme/theme-picker.sh",
 		"tooltip": false
 	},
 	"group/theme_switcher": {

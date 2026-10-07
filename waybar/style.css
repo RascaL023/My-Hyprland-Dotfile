@@ -1,4 +1,5 @@
-@import url("/home/rascal/Documents/PUB/Code/Go/Theme-Engine/output/domain/gtk/css/source.css");
+@import url("/home/rascal/.myenv/theme/generated/kanagawa-dragon/general/css/source.css");
+/* @import url("~/.myenv/theme/current/general/css/source.css"); */
 /* @import url("source.css"); */
 
 @define-color main-br @text-primary;
