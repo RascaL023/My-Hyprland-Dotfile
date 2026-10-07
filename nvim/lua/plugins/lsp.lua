@@ -21,6 +21,7 @@ return {
 
   config = function()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    vim.lsp.config("*", { capabilities = capabilities })
     -- =================================
     -- From System
     -- =================================
@@ -44,15 +45,38 @@ return {
       },
     }vim.lsp.enable("nixd")
 
-    vim.lsp.config.clangd = {
-      default_config = {
-        cmd = {
-            "clangd",
-        },
-        filetypes = { "c", "cpp", "objc", "objcpp" },
-        capabilities = capabilities,
+    -- vim.lsp.config.clangd = {
+    --   default_config = {
+    --     cmd = {
+    --         "clangd",
+    --     },
+    --     filetypes = { "c", "cpp", "objc", "objcpp" },
+    --     capabilities = capabilities,
+    --   },
+    -- }vim.lsp.enable("clangd")
+    vim.lsp.config("clangd", {
+      cmd = {
+        "clangd",
+        "--background-index",
+        "--completion-style=detailed",
+        "--header-insertion=never",
+        "--query-driver=/nix/store/*/bin/*-elf-*,/home/rascal/.platformio/packages/**/bin/*-elf-*",
       },
-    }vim.lsp.enable("clangd")
+      filetypes = { "c", "cpp", "objc", "objcpp" },
+      root_markers = { ".clangd", "platformio.ini", "compile_commands.json", ".git" },
+      handlers = {
+        ["textDocument/publishDiagnostics"] = function(err, result, ctx)
+          if result and result.diagnostics then
+            result.diagnostics = vim.tbl_filter(function(d)
+              return not d.message:match("^In included file")
+            end, result.diagnostics)
+          end
+          vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx)
+        end,
+      },
+    })
+    vim.lsp.enable("clangd")
+    vim.filetype.add({ extension = { ino = "cpp" } })
 
     vim.lsp.config.lua_ls = {
       default_config = {
@@ -113,7 +137,7 @@ return {
     vim.lsp.config.rust_analyzer = {
         default_config = {
             --  Perintah yang dieksekusi, mencari biner via PATH
-            cmd = { "rust_analyzer" },
+            cmd = { "rust-analyzer" },
 
             --  Aktif untuk file jenis rust saja
             filetypes = { "rust" },

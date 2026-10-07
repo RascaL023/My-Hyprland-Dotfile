@@ -313,3 +313,6 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR><Esc>", {
     silent = true,
     desc = "Clear search highlight",
 })
+
+-- Quit from terminal
+map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
