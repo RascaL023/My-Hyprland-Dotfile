@@ -1,4 +1,4 @@
-@import "~/.myenv/theme/current/general/rasi/source.rasi"
+@import "~/.myenv/theme/current/rasi/theme.rasi"
 
 configuration {
     location: 3;

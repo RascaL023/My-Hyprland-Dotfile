@@ -1,13 +1,15 @@
 # Supported Tools
-kitty
-cava
-foot
-hypr
-waybar
-wlogout
-eww
-rofi
-nvim
-yazi
-alacritty
+kitty:~/.config/kitty
+cava:~/.config/cava
+foot:~/.config/foot
+hypr:~/.config/hypr
+waybar:~/.config/waybar
+wlogout:~/.config/wlogout
+eww:~/.config/eww
+rofi:~/.config/rofi
+nvim:~/.config/nvim
+yazi:~/.config/yazi
+alacritty:~/.config/alacritty
 matugen:~/.config/matugen
+lazygit:~/.config/lazygit
+herdr:~/.config/herdr

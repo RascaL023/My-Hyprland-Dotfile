@@ -1,4 +1,4 @@
-@import url("/home/rascal/Documents/PUB/Code/Go/Theme-Engine/output/domain/gtk/css/source.css");
+@import url("/home/rascal/.myenv/theme/current/css/theme.css");
 
 @define-color window-bg             @alpha-crust;
 

@@ -3,3 +3,8 @@
 **.bak
 **.tmp
 matugen/templates/test.conf
+
+herdr/**
+!herdr/.gitkeep
+lazygit/**
+!lazygit/.gitkeep

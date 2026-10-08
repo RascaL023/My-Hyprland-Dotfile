@@ -1,77 +1,49 @@
+############################
+## Generated with Matugen ##
+############################
+## Manual edit is not recomended,
+## Except for testing.
+
+onboarding = false
+
 [keys]
 previous_workspace = "prefix+{"
 next_workspace = "prefix+}"
 
 [theme.custom]
+
 # ─────────────────────────────────────────────
 # Base surfaces
 # ─────────────────────────────────────────────
-
-# Main panel / primary background
 panel_bg = "{{colors.surface.default.hex}}"
-
-# Main elevated/selected surface
 surface0 = "{{colors.surface_container.default.hex}}"
-
-# Higher elevated / hover surface
 surface1 = "{{colors.surface_container_high.default.hex}}"
-
-# Deepest / dim surface — separators, pane chrome, etc.
 surface_dim = "{{colors.surface_container_lowest.default.hex}}"
-
 
 # ─────────────────────────────────────────────
 # Borders / muted UI
 # ─────────────────────────────────────────────
-
-# Muted borders, inactive labels, scrollbar, secondary UI
 overlay0 = "{{colors.outline_variant.default.hex}}"
-
-# Stronger borders / secondary UI
 overlay1 = "{{colors.outline.default.hex}}"
-
 
 # ─────────────────────────────────────────────
 # Foreground
 # ─────────────────────────────────────────────
-
-# Primary text
 text = "{{colors.on_surface.default.hex}}"
-
-# Secondary / muted text
 subtext0 = "{{colors.on_surface_variant.default.hex}}"
-
 
 # ─────────────────────────────────────────────
 # Main interaction accent
 # ─────────────────────────────────────────────
-
-# Active borders, tabs, focused elements, navigation,
-# key hints and interactive UI
 accent = "{{colors.primary.default.hex}}"
-
 
 # ─────────────────────────────────────────────
 # Semantic / special colors
 # ─────────────────────────────────────────────
-
-# Special / git branch / decorative accent
 mauve = "{{colors.secondary.default.hex}}"
-
-# Success / completed / healthy
 green = "{{colors.tertiary.default.hex}}"
-
-# Warning / working / attention
 yellow = "{{colors.error_container.default.hex}}"
-
-# Error / failed / blocked
 red = "{{colors.error.default.hex}}"
-
-# Informational
 blue = "{{colors.primary_container.default.hex}}"
-
-# Secondary informational / shell accent
 teal = "{{colors.tertiary_container.default.hex}}"
-
-# Special / fallback accent
 peach = "{{colors.secondary_container.default.hex}}"
