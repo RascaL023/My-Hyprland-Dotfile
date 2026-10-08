@@ -26,3 +26,12 @@ output_path     = "~/.myenv/theme/generated/live.bak/general/scss/source/_source
 [templates.rasi]
 input_path      = "~/.config/matugen/templates/general/source.rasi"
 output_path     = "~/.myenv/theme/generated/live.bak/general/rasi/source.rasi"
+
+[templates.nvim]
+input_path      = "~/.config/matugen/templates/general/nvim.lua"
+output_path     = "~/.myenv/theme/current/nvim/theme.lua"
+
+[templates.herdr]
+input_path      = "~/.config/matugen/templates/general/herdr.toml"
+output_path     = "~/.myenv/theme/generated/live.bak/general/herdr/config.toml"
+post_hook       = "herdr server reload-config"

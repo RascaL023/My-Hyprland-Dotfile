@@ -1,0 +1,109 @@
+{
+  "background": "#181616",
+  "foreground": "#c5c9c5",
+  "cursor": "#C8C093",
+
+  "colors": [
+    "#0d0c0c",
+    "#c4746e",
+    "#8a9a7b",
+    "#c4b28a",
+    "#8ba4b0",
+    "#a292a3",
+    "#8ea4a2",
+    "#C8C093",
+    "#a6a69c",
+    "#E46876",
+    "#87a987",
+    "#E6C384",
+    "#7FB4CA",
+    "#938AA9",
+    "#7AA89F",
+    "#c5c9c5"
+  ],
+
+  "extra": {
+    "accent": {
+      "primary": "#8ba4b0",
+      "secondary": "#a292a3",
+      "on_accent": "#0d0c0c"
+    },
+
+    "text": {
+      "primary": "#c5c9c5",
+      "secondary": "#C8C093",
+      "muted": "#a6a69c",
+      "link": "#8ba4b0",
+      "visited": "#7b6f8c"
+    },
+
+    "layer": {
+      "base": "#181616",
+      "mantle": "#12120f",
+      "crust": "#0d0c0c",
+      "surface": "#1D1C19",
+      "surface_raised": "#282727",
+      "surface_overlay": "#393836"
+    },
+
+    "border": {
+      "default": "#282727",
+      "active": "#8ba4b0",
+      "medium": "#4a4a49"
+    },
+
+    "status": {
+      "success": "#8a9a7b",
+      "warning": "#c4b28a",
+      "error": "#c4746e",
+      "critical": "#E46876",
+      "info": "#8ba4b0"
+    },
+
+    "fg": {
+      "dim": "#63635e",
+      "dim_muted": "#7a7a74",
+      "disabled": "#5a5f63"
+    },
+
+    "bg": {
+      "conflict": "#635127",
+      "disk_usage": "#50504a"
+    },
+
+    "syntax": {
+      "comment": "#625E5A",
+      "keyword": "#938AA9",
+      "statement": "#938AA9",
+      "function": "#7FB4CA",
+      "method": "#7FB4CA",
+      "string": "#87A987",
+      "constant": "#E6C384",
+      "number": "#E6C384",
+      "boolean": "#E6C384",
+      "type": "#7AA89F",
+      "class": "#7AA89F",
+      "variable": "#C5C9C5",
+      "parameter": "#C8C093",
+      "property": "#C8C093",
+      "identifier": "#E6C384",
+      "operator": "#C0A36E",
+      "regex": "#C0A36E",
+      "builtin": "#7FB4CA",
+      "builtin_variable": "#E46876",
+      "punctuation": "#9CABCA",
+      "special": "#E46876",
+      "exception": "#E46876",
+      "return": "#E46876",
+      "import": "#FFA066",
+      "decorator": "#938AA9",
+      "tag": "#E46876",
+      "attribute": "#C8C093"
+    },
+
+    "ui": {
+      "bg_statusline": "#282727",
+      "gutter": "#393836"
+    }
+  }
+}

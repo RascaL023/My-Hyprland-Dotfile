@@ -4,7 +4,8 @@
 - [x] Kitty
 - [x] Lazygit
 - [x] Rofi
-- [ ] Nvim
+- [x] Nvim
+- [x] Herdr
 - [ ] Eww
 - [ ] Hyprland
 - [ ] Niri

@@ -1,0 +1,10 @@
+[config]
+
+[templates.nvim]
+input_path      = "~/.dotfile/matugen/templates/kanagawa-dragon-lotus/template/nvim.lua"
+output_path     = "~/.myenv/theme/current/nvim/theme.lua"
+post_hook       = "echo Success"
+
+# [templates.nvim]
+# input_path = "~/.dotfile/matugen/templates/kanagawa-dragon-lotus/template/nvim.lua"
+# output_path = "~/.myenv/theme/generated/kanagawa-dragon-lotus/nvim/theme.lua"

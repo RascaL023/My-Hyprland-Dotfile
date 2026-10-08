@@ -1,6 +1,6 @@
 ---
 name: matugen-templates
-description: Build, register, test and reload Matugen 4.x templates (Material You colors) for Linux ricing targets such as kitty, Hyprland, niri, Waybar, rofi, GTK, mako, alacritty, ghostty, btop and similar tools. Use this whenever the user wants an app themed from a wallpaper or source color with matugen.
+description: Build, register, test and reload Matugen 4.x templates for Linux ricing targets such as kitty, Hyprland, niri, Waybar, rofi, GTK, mako, alacritty, ghostty, btop, neovim and similar tools. Covers both wallpaper-derived Material You theming and this repo's fixed domain palettes (hand-authored blueprint/palette.json rendered with `matugen json`, e.g. kanagawa-dragon). Use this whenever the user wants an app themed with matugen.
 ---
 
 # Matugen Template Skill (matugen 4.1.0)
@@ -11,7 +11,72 @@ Read this whole file before writing any template. Follow it as the source of tru
 
 ---
 
-## 0. Environment facts
+## 0. THIS REPO'S CONTEXT (read this before sections 1–11)
+
+Sections 1–11 are a generic wallpaper-theming skill. **This repo also does something the generic skill does not cover**, so read this first.
+
+Repo: `~/.dotfile` (branch `dev`), with each tool symlinked into `~/.config/<tool>`. `~/.config/matugen` → `~/.dotfile/matugen`.
+
+Repo rules (from `AGENTS.md`):
+- Edit files **only inside `~/.dotfile`**; never edit the symlinked `~/.config` copies directly.
+- Never run `~/.dotfile/.synchronizer/.sync.sh`.
+- Do **not** commit or push unless explicitly asked.
+- Generated outputs are not meant to be hand-edited (`**/*.bak` is git-ignored).
+
+### Two different theming flows — pick the right one
+
+**A. Wallpaper-derived ("general") theme** — sections 1–11 below
+- Command: `matugen image <wallpaper> --source-color-index 0 -c ~/.config/matugen/config.toml`
+- Config: `matugen/config.toml` (`alacritty`, `kitty`, `lazygit`, `scss`, `rasi`, …)
+- Templates: `matugen/templates/general/*`, using Material roles `{{ colors.<role>.default.hex }}`.
+- Outputs: `~/.myenv/theme/generated/live.bak/<tool>/…`
+- Only run `matugen image` when the user asks for wallpaper theming. Always pass `--source-color-index 0`.
+
+**B. Fixed domain palette (named theme, e.g. `kanagawa-dragon`)** — the usual task in this repo
+- Source of truth: `matugen/templates/<theme>/blueprint/palette.json`. This is **not** a matugen-generated palette; it is a hand-authored JSON with two blocks, `dark` and `light`. Each block is:
+  - `background`, `foreground`, `cursor`
+  - `colors`: a 16-entry array in ANSI order (index 0 = black)
+  - `extra`: `{ accent, text, layer, border, status, fg, bg, syntax, ui }`
+  - `extra.syntax` uses **universal semantic names** (`comment`, `keyword`, `function`, `string`, `type`, …) so every tool template maps from the same vocabulary.
+- Templates: `matugen/templates/<theme>/template/*`.
+- Command: `matugen json <palette.json> -c <theme-config.toml>`. The JSON is exposed **at the template root**, so templates read `{{ dark.* }}` and `{{ light.* }}` (not `colors.*`).
+- Config: use a **separate config per theme**. Do NOT add fixed-theme templates to `matugen/config.toml`, otherwise every `matugen image` run fails because `dark`/`light` only exist in `json` mode.
+- Outputs: `~/.myenv/theme/generated/<theme>/<tool>/…` (e.g. `generated/kanagawa-dragon/nvim/`).
+
+### Engine facts verified on this machine (matugen 4.1.0)
+- `matugen json <file> -c <cfg>` needs no source color. `-m dark|light` is irrelevant to a template that writes both blocks itself.
+- `--import-json <file>` adds the same JSON as render data for `matugen image` / `matugen color` runs.
+- Dotted access works even for keyword-like keys: `{{ dark.extra.syntax.function }}`, `.return`, `.class`, `.import` are all valid.
+- **Arrays cannot be indexed.** `dark.colors[0]` and `dark.colors.0` are parse errors. Loop instead:
+  `<* for c in dark.colors *>{{ c }}<* endfor *>`. The two-variable form (`for i, c in arr`) does **not** bind `(index, value)` — use the one-variable form for arrays.
+- A matugen config file must begin with `[config]`.
+- `--dry-run` renders nothing. To test, point `output_path` at a temp directory and run for real.
+- Escape `\{{` only when the target language itself contains a literal `{{`. For Lua tables keep one key per line (never `= {{`), and quote Lua keyword keys: `["function"]`, `["return"]`.
+
+### Neovim target (already wired)
+- Template: `matugen/templates/kanagawa-dragon/template/nvim.lua` → renders `nvim/lua/core/generated/kanagawa.lua`.
+- The generated file is a **palette module only** (both `dark` and `light`) and is consumed by `nvim/lua/core/theme.lua` via `require("core.generated.kanagawa")`. All tokyonight key mapping, `blend()` math and plugin highlights stay in `theme.lua` (the template engine cannot do colour arithmetic).
+- When adding a new tool/theme, mirror the comment header used in `matugen/templates/general/*`.
+
+### Testing a fixed-palette template (verified recipe)
+```sh
+mkdir -p /tmp/mtest/out
+cat > /tmp/mtest/config.toml <<'EOF'
+[config]
+
+[templates.t]
+input_path  = "<abs>/matugen/templates/kanagawa-dragon/template/nvim.lua"
+output_path = "/tmp/mtest/out/out.lua"
+EOF
+matugen json "<abs>/matugen/templates/kanagawa-dragon/blueprint/palette.json" -c /tmp/mtest/config.toml
+grep -nE '\{\{|\}\}|<\*|\*>' /tmp/mtest/out/out.lua   # must print nothing
+luac -p /tmp/mtest/out/out.lua                            # Lua targets must parse
+```
+Then diff the generated values against `palette.json` — both blocks must match 1:1.
+
+---
+
+## 0.5 Environment facts
 
 - Target version: **matugen 4.1.0** (check with `matugen --version`).
 - Config file (Linux): `~/.config/matugen/config.toml` (override with `-c <FILE>`).
@@ -658,8 +723,8 @@ theme[cpu_end]="{{ colors.tertiary.default.hex }}"
 
 ### 6.14 Neovim / Lua targets
 
-- Generate a **palette module**, not a full colorscheme: `~/.config/nvim/lua/matugen_palette.lua`.
-- Beware the Lua `{{` collision: do not write nested table constructors that put two `{` together. Keep one key per line.
+- Generate a **palette module**, not a full colorscheme. In this repo that is `nvim/lua/core/generated/kanagawa.lua`, required by `nvim/lua/core/theme.lua` as `require("core.generated.kanagawa")` (see section 0).
+- Beware the Lua `{{` collision: do not write nested table constructors that put two `{` together. Keep one key per line, and quote Lua keyword keys (`["function"]`, `["return"]`).
 
 ```lua
 -- Generated by matugen. Do not edit.
@@ -696,6 +761,8 @@ Use this procedure for any app not listed:
 ## 7. Registering templates in `config.toml`
 
 Read the existing `~/.config/matugen/config.toml` first, then **add** entries. Do not remove existing ones.
+
+> **In this repo:** `matugen/config.toml` is only for the wallpaper-derived (`general`) theme. Fixed domain palettes (e.g. `kanagawa-dragon`) get their **own separate config** and are rendered with `matugen json <palette.json>` — never add them here (section 0B).
 
 ```toml
 [config]
