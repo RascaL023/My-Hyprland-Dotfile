@@ -2,9 +2,16 @@
 
 [templates.nvim]
 input_path      = "~/.dotfile/matugen/templates/kanagawa-dragon-lotus/template/nvim.lua"
-output_path     = "~/.myenv/theme/current/nvim/theme.lua"
-post_hook       = "echo Success"
+output_path     = "~/.myenv/theme/generated/kanagawa-dragon-lotus/nvim/theme.lua"
 
-# [templates.nvim]
-# input_path = "~/.dotfile/matugen/templates/kanagawa-dragon-lotus/template/nvim.lua"
-# output_path = "~/.myenv/theme/generated/kanagawa-dragon-lotus/nvim/theme.lua"
+[templates.css]
+input_path = "~/.dotfile/matugen/templates/kanagawa-dragon-lotus/template/gtk3.css"
+output_path = "~/.myenv/theme/generated/kanagawa-dragon-lotus/css/theme.css"
+
+[templates.lazygit]
+input_path      = "~/.dotfile/matugen/templates/kanagawa-dragon-lotus/template/lazygit.yml"
+output_path     = "~/.myenv/theme/generated/kanagawa-dragon-lotus/lazygit/config.yml"
+
+[templates.herdr]
+input_path      = "~/.dotfile/matugen/templates/kanagawa-dragon-lotus/template/herdr.toml"
+output_path     = "~/.myenv/theme/generated/kanagawa-dragon-lotus/herdr/config.toml"

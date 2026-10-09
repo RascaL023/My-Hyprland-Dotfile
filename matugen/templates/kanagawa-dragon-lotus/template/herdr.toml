@@ -1,0 +1,49 @@
+############################
+## Generated with Matugen ##
+############################
+## Manual edit is not recomended,
+## Except for testing.
+
+onboarding = false
+
+[keys]
+previous_workspace = "prefix+{"
+next_workspace = "prefix+}"
+
+[theme.custom]
+
+# ─────────────────────────────────────────────
+# Base surfaces
+# ─────────────────────────────────────────────
+panel_bg  = "{{ extra.layer.base }}"
+surface0 = "{{ extra.layer.surface }}"
+surface1 = "{{ extra.layer.surface_raised }}"
+surface_dim = "{{ extra.layer.surface_overlay }}"
+
+# ─────────────────────────────────────────────
+# Borders / muted UI
+# ─────────────────────────────────────────────
+overlay0 = "{{ extra.border.default | to_color | lighten: 30 | format: hex }}"
+overlay1 = "{{ extra.border.active }}"
+
+# ─────────────────────────────────────────────
+# Foreground
+# ─────────────────────────────────────────────
+text    = "{{ extra.text.primary }}"
+subtext0 = "{{ extra.text.secondary }}"
+
+# ─────────────────────────────────────────────
+# Main interaction accent
+# ─────────────────────────────────────────────
+accent = "{{ extra.accent.primary }}"
+
+# ─────────────────────────────────────────────
+# Semantic / special colors
+# ─────────────────────────────────────────────
+mauve  = "{{ extra.accent.secondary }}"
+green  = "{{ extra.status.success }}"
+yellow = "{{ extra.status.warning }}"
+red    = "{{ extra.status.error }}"
+blue   = "{{ extra.bg.conflict }}"
+teal   = "{{ extra.syntax.type }}"
+peach  = "{{ extra.syntax.string }}"
