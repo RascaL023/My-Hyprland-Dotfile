@@ -23,7 +23,7 @@ surface_dim = "{{colors.surface_container_lowest.default.hex}}"
 # ─────────────────────────────────────────────
 # Borders / muted UI
 # ─────────────────────────────────────────────
-overlay0 = "{{colors.outline_variant.default.hex}}"
+overlay0 = "{{colors.outline_variant.default.hex | blend: {{ colors.primary.default.hex }}, 90 | lighten: 30}}"
 overlay1 = "{{colors.outline.default.hex}}"
 
 # ─────────────────────────────────────────────
