@@ -1,4 +1,4 @@
-@import "source.scss";
+@import "/home/rascal/.myenv/theme/current/scss/theme";
 
 * {
   all: unset;
@@ -6,14 +6,14 @@
 
 /* ============================= PROFILE ============================= */
 .profile {
-  background-color: $PrimaryBg;
+  background-color: rgba($layer-lowest, 0.999);
   border-radius: 16px;
   padding: 20px;
-  font-family: $PrimaryFont;
+  font-family: $font-widget;
 }
 
 .profile-box {
-  background-color: $SecondaryBg;
+  background-color: $layer-low;
   border-radius: 12px;
   padding: 15px;
   margin-bottom: 15px;
@@ -25,7 +25,7 @@
 }
 
 .profile-name {
-  color: $Text1;
+  color: $text-primary;
   font-size: 20px;
   font-weight: 600;
   font-style: italic;
@@ -39,8 +39,8 @@
 
 .power-btn {
   font-size: 24px;
-  color: $Text2;
-  background-color: $SecondaryBg;
+  color: $text-secondary;
+  background-color: $layer-low;
   border-radius: 12px;
   padding: 10px 15px;
   margin: 0 4px;
@@ -49,17 +49,13 @@
 }
 
 .power-btn:hover {
-  background-color: $ButtonHoverBg1;
-  color: $ButtonHoverFg1;
-}
-
-.power-btn:active {
-  /* background-color: $ButtonActive1; */
+  background-color: $primary-accent;
+  color: $on-primary;
 }
 
 /* ============================= DISTRO ============================= */
 .distro {
-  background-color: $PrimaryBg;
+  background-color: rgba($layer-lowest, 0.999);
   border-radius: 18px;
   padding: 30px
 }
@@ -69,31 +65,31 @@
 }
 
 /* -------------- Music --------------*/
-.music-container {
-  border-radius: 20px;
-  background-color: $PrimaryBg;
-}
+/* .music-container { */
+/*   border-radius: 20px; */
+/*   background-color: $layer-highest; */
+/* } */
 
 .music-player {
-  background-color: $SecondaryBg;
+  background-color: $layer-low;
   border-radius: 20px;
   padding: 12px 20px;
-  color: $Text3;
+  color: $text-muted;
   font-size: 11pt;
-  font-family: $SecondaryFont;
+  font-family: $font-widget;
 }
 
 .music-btn {
-  color: $ButtonFg;
+  color: $primary-accent;
   padding: 4px 10px;
   transition: 150ms;
   border-radius: 8px;
   &:hover {
-    color: $ButtonHoverFg2;
-    background-color: $ButtonHoverBg2;
+    color: $primary-accent;
+    background-color: rgba($text-primary, 0.15);
   }
   &:active {
-    background-color: $ButtonActive;
+    background-color: rgba($secondary-accent, 0.25);
   }
 }
 
@@ -107,7 +103,7 @@
 }
 
 .music-text {
-  color: $Text1;
+  color: $text-primary;
   font-weight: 500;
   margin: 0 10px;
 }
@@ -124,14 +120,13 @@
     min-height: 4px;
     min-width: 100px;
     border-radius: 2px;
-    background-color: alpha($layer-surface-raised, 0.5);
+    background-color: rgba($layer-high, 0.5);
   }
   
   highlight {
     min-height: 4px;
     border-radius: 2px;
-    /* background: linear-gradient(90deg, #89b4fa, #b4befe); */
-    background-color: $accent-primary;
+    background: linear-gradient(90deg, $primary-accent, $secondary-accent);
   }
   
   slider {
@@ -139,7 +134,7 @@
     min-height: 7px;
     margin: -1px;
     border-radius: 50%;
-    background-color: mix($accent-primary, $accent-secondary, 0.5);
+    background-color: mix($primary-accent, $secondary-accent, 0.5);
     
     &:hover {
       background-color: $text-secondary;
@@ -152,12 +147,11 @@
 
 .music-time {
   font-size: 10px;
-  color: alpha($text-muted, 0.8);
+  color: rgba($text-muted, 0.8);
   padding: 0 5px;
   margin-top: 2px;
   
   .time-elapsed, .time-total {
-    font-family: $SecondaryFont;
+    font-family: $font-widget;
   }
 }
-

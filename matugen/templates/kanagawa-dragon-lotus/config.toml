@@ -8,6 +8,10 @@ output_path     = "~/.myenv/theme/generated/kanagawa-dragon-lotus/nvim/theme.lua
 input_path = "~/.dotfile/matugen/templates/kanagawa-dragon-lotus/template/gtk3.css"
 output_path = "~/.myenv/theme/generated/kanagawa-dragon-lotus/css/theme.css"
 
+[templates.scss]
+input_path = "~/.dotfile/matugen/templates/kanagawa-dragon-lotus/template/source.scss"
+output_path = "~/.myenv/theme/generated/kanagawa-dragon-lotus/scss/_theme.scss"
+
 [templates.lazygit]
 input_path      = "~/.dotfile/matugen/templates/kanagawa-dragon-lotus/template/lazygit.yml"
 output_path     = "~/.myenv/theme/generated/kanagawa-dragon-lotus/lazygit/config.yml"

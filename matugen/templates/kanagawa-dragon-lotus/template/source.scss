@@ -1,0 +1,72 @@
+// ############################
+// ## Generated with Matugen ##
+// ############################
+// ## Manual edit is not recomended,
+// ## Except for testing.
+
+
+$foreground:               {{ foreground }};
+$background:               {{ background }};
+
+$black:                    {{ color0 }};
+$red:                      {{ color1 }};
+$green:                    {{ color2 }};
+$yellow:                   {{ color3 }};
+$blue:                     {{ color4 }};
+$magenta:                  {{ color5 }};
+$cyan:                     {{ color6 }};
+$white:                    {{ color7 }};
+
+$black-bright:             {{ color8 }};
+$red-bright:               {{ color9 }};
+$green-bright:             {{ color10 }};
+$yellow-bright:            {{ color11 }};
+$blue-bright:              {{ color12 }};
+$magenta-bright:           {{ color13 }};
+$cyan-bright:              {{ color14 }};
+$white-bright:             {{ color15 }};
+
+
+$primary-accent:           {{ accent.primary }};
+$secondary-accent:         {{ accent.secondary }};
+$on-primary:               {{ accent.on_accent }};
+
+$text-primary:             {{ foreground }};
+$text-secondary:           {{ text.secondary }};
+$text-muted:               {{ text.muted }};
+$text-link:                {{ accent.primary }};
+$text-visited:             {{ text.visited }};
+
+
+$layer-base:               {{ surface.base }};
+$layer-lowest:             {{ surface.lowest }};
+$layer-low:                {{ surface.low }};
+$layer-medium:             {{ surface.medium }};
+$layer-high:               {{ surface.high }};
+$layer-highest:            {{ surface.highest }};
+
+
+$border-default:           {{ border.medium }};
+$border-active:            {{ accent.primary }};
+$border-medium:            {{ border.default }};
+
+
+$status-success:           {{ status.success }};
+$status-warning:           {{ status.warning }};
+$status-error:             {{ status.error }};
+$status-critical:          {{ status.critical }};
+$status-info:              {{ status.info }};
+
+
+$fg-dim:                   {{ text.dim }};
+$fg-dim-muted:             {{ text.dim_muted }};
+$fg-disabled:              {{ text.disabled }};
+
+
+$bg-conflict:              {{ bg.conflict }};
+$bg-disk-usage:            {{ bg.disk_usage }};
+
+
+$font-system:             "JetBrainsMono Nerd Font";
+$font-widget:             "Monocraft Nerd Font";
+$font-terminal:           "MapleMono NF";
