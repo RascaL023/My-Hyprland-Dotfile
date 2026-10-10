@@ -3,11 +3,11 @@
 - [x] Alacritty
 - [x] Kitty
 - [x] Lazygit
-- [x] Rofi
+- [x] Rasi-based
 - [x] Nvim
 - [x] Herdr
 - [x] GTK-3
-- [ ] Eww
+- [ ] Scss-based
 - [ ] Hyprland
 - [ ] Niri
 - [ ] Cava?

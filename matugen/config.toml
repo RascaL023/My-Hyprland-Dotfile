@@ -3,12 +3,12 @@
 [templates.test]
 input_path      = "~/.config/matugen/templates/test.conf"
 output_path     = "~/.config/matugen/generated.bak/test.conf"
-post_hook       = "echo Success"
+post_hook       = "echo Test Success"
 
 [templates.alacritty]
 input_path      = "~/.config/matugen/templates/general/alacritty.toml"
 output_path     = "~/.myenv/theme/generated/live.bak/alacritty/theme.toml"
-post_hook       = "mkdir -p ~/.myenv/theme/generated/live.bak/alacritty"
+post_hook       = "mkdir -p ~/.myenv/theme/current/alacritty"
 
 [templates.kitty]
 input_path      = "~/.config/matugen/templates/general/kitty.conf"

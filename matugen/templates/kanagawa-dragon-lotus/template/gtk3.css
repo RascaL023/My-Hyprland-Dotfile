@@ -8,105 +8,105 @@
 /* @import "function"; */
 
 /* ── Accent (direct + derived) ── */
-@define-color accent                {{ extra.accent.primary }};
-@define-color accent-muted          {{ extra.accent.primary | to_color | set_alpha: 0.2 | format: rgba }};
-@define-color accent-muted-strong   {{ extra.accent.primary | to_color | set_alpha: 0.3 | format: rgba }};
-@define-color accent-shadow         {{ extra.accent.primary | to_color | set_alpha: 0.35 | format: rgba }};
-@define-color accent-hover          {{ extra.accent.primary | to_color | lighten: -8 | format: hex }};
-@define-color accent-bright         {{ extra.accent.primary | to_color | lighten: 15 | format: hex }};
+@define-color accent                {{ accent.primary }};
+@define-color accent-muted          {{ accent.primary | to_color | set_alpha: 0.2 | format: rgba }};
+@define-color accent-muted-strong   {{ accent.primary | to_color | set_alpha: 0.3 | format: rgba }};
+@define-color accent-shadow         {{ accent.primary | to_color | set_alpha: 0.35 | format: rgba }};
+@define-color accent-hover          {{ accent.primary | to_color | lighten: -8 | format: hex }};
+@define-color accent-bright         {{ accent.primary | to_color | lighten: 15 | format: hex }};
 @define-color accent-progress       #a8b7bb; /* Computed by Sass */
-@define-color accent-backdrop       {{ extra.accent.primary | to_color | lighten: 10 | format: hex }};
-@define-color accent-focus          {{ extra.text.secondary | to_color | set_alpha: 0.3 | format: rgba }};
+@define-color accent-backdrop       {{ accent.primary | to_color | lighten: 10 | format: hex }};
+@define-color accent-focus          {{ text.secondary | to_color | set_alpha: 0.3 | format: rgba }};
 
 /* ── Background (direct + derived) ── */
-@define-color bg-main               {{ extra.layer.base }};
-@define-color bg-alt                {{ extra.layer.surface_overlay }};
-@define-color bg-surface            {{ extra.layer.surface_overlay }};
-@define-color bg-surface-active     {{ extra.layer.surface_overlay | to_color | lighten: 10 | format: hex }};
-@define-color bg-deep               {{ extra.layer.crust }};
-@define-color bg-raised             {{ extra.layer.surface }};
-@define-color bg-dialog             {{ extra.layer.surface_raised }};
-@define-color bg-input              {{ extra.layer.surface }};
-@define-color bg-input-deep         {{ extra.layer.surface | to_color | lighten: 5 | format: hex }};
-@define-color bg-sidebar-hover      {{ extra.layer.surface_overlay | to_color | lighten: 8 | format: hex }};
-@define-color bg-menu-selected      {{ extra.layer.surface_overlay | to_color | lighten: 12 | format: hex }};
-@define-color bg-conflict           {{ extra.bg.conflict }};
-@define-color disk-usage-bg         {{ extra.bg.disk_usage }};
-@define-color surface-disabled      {{ extra.text.primary | to_color | set_alpha: 0.04 | format: rgba }};
+@define-color bg-main               {{ surface.base }};
+@define-color bg-alt                {{ surface.highest }};
+@define-color bg-surface            {{ surface.highest }};
+@define-color bg-surface-active     {{ surface.highest | to_color | lighten: 10 | format: hex }};
+@define-color bg-deep               {{ surface.low }};
+@define-color bg-raised             {{ surface.medium }};
+@define-color bg-dialog             {{ surface.high }};
+@define-color bg-input              {{ surface.medium }};
+@define-color bg-input-deep         {{ surface.medium | to_color | lighten: 5 | format: hex }};
+@define-color bg-sidebar-hover      {{ surface.highest | to_color | lighten: 8 | format: hex }};
+@define-color bg-menu-selected      {{ surface.highest | to_color | lighten: 12 | format: hex }};
+@define-color bg-conflict           {{ bg.conflict }};
+@define-color disk-usage-bg         {{ bg.disk_usage }};
+@define-color surface-disabled      {{ text.primary | to_color | set_alpha: 0.04 | format: rgba }};
 
 /* ── Foreground (direct + derived) ── */
-@define-color fg-main               {{ extra.text.primary }};
-@define-color fg-bright             {{ extra.text.primary | to_color | lighten: 15 | format: hex }};
-@define-color fg-alt                {{ extra.text.primary | to_color | set_alpha: 0.7 | format: rgba }};
-@define-color fg-muted              {{ extra.text.primary | to_color | set_alpha: 0.5 | format: rgba }};
-@define-color fg-muted-strong       {{ extra.text.primary | to_color | set_alpha: 0.32 | format: rgba }};
-@define-color fg-dim                {{ extra.fg.dim }};
-@define-color fg-dim-muted          {{ extra.fg.dim_muted }};
-@define-color fg-disabled           {{ extra.fg.disabled }};
-@define-color fg-invert             {{ extra.layer.crust | to_color | set_alpha: 0.87 | format: rgba }};
-@define-color fg-invert-alt         {{ extra.layer.crust | to_color | set_alpha: 0.6 | format: rgba }};
-@define-color fg-invert-muted       {{ extra.layer.crust | to_color | set_alpha: 0.38 | format: rgba }};
-@define-color fg-invert-soft        {{ extra.layer.crust | to_color | set_alpha: 0.3 | format: rgba }};
-@define-color fg-osd                {{ extra.layer.mantle | to_color | lighten: -5 | set_alpha: 0.9 | format: rgba }};
+@define-color fg-main               {{ text.primary }};
+@define-color fg-bright             {{ text.primary | to_color | lighten: 15 | format: hex }};
+@define-color fg-alt                {{ text.primary | to_color | set_alpha: 0.7 | format: rgba }};
+@define-color fg-muted              {{ text.primary | to_color | set_alpha: 0.5 | format: rgba }};
+@define-color fg-muted-strong       {{ text.primary | to_color | set_alpha: 0.32 | format: rgba }};
+@define-color fg-dim                {{ text.dim }};
+@define-color fg-dim-muted          {{ text.dim_muted }};
+@define-color fg-disabled           {{ text.disabled }};
+@define-color fg-invert             {{ surface.low | to_color | set_alpha: 0.87 | format: rgba }};
+@define-color fg-invert-alt         {{ surface.low | to_color | set_alpha: 0.6 | format: rgba }};
+@define-color fg-invert-muted       {{ surface.low | to_color | set_alpha: 0.38 | format: rgba }};
+@define-color fg-invert-soft        {{ surface.low | to_color | set_alpha: 0.3 | format: rgba }};
+@define-color fg-osd                {{ surface.lowest | to_color | lighten: -5 | set_alpha: 0.9 | format: rgba }};
 
 /* ── Selection ── */
-@define-color selection-bg          {{ extra.accent.primary }};
-@define-color selection-fg          {{ extra.layer.crust | to_color | set_alpha: 0.87 | format: rgba }};
+@define-color selection-bg          {{ accent.primary }};
+@define-color selection-fg          {{ surface.low | to_color | set_alpha: 0.87 | format: rgba }};
 
 /* ── Status ── */
-@define-color error                 {{ extra.status.error }};
-@define-color error-strong          {{ extra.status.error | to_color | lighten: 15 | format: hex }};
-@define-color error-hover           {{ extra.status.error | to_color | lighten: -8 | format: hex }};
-@define-color warning               {{ extra.status.warning }};
-@define-color warning-hover         {{ extra.status.warning | to_color | lighten: -8 | format: hex }};
-@define-color success               {{ extra.status.success }};
-@define-color info                  {{ extra.status.info }};
-@define-color info-strong           {{ extra.status.info | to_color | lighten: 15 | format: hex }};
-@define-color link                  {{ extra.text.link }};
-@define-color link-visited          {{ extra.text.visited }};
+@define-color error                 {{ status.error }};
+@define-color error-strong          {{ status.error | to_color | lighten: 15 | format: hex }};
+@define-color error-hover           {{ status.error | to_color | lighten: -8 | format: hex }};
+@define-color warning               {{ status.warning }};
+@define-color warning-hover         {{ status.warning | to_color | lighten: -8 | format: hex }};
+@define-color success               {{ status.success }};
+@define-color info                  {{ status.info }};
+@define-color info-strong           {{ status.info | to_color | lighten: 15 | format: hex }};
+@define-color link                  {{ text.link }};
+@define-color link-visited          {{ text.visited }};
 
 /* ── Border ── */
-@define-color border                {{ extra.text.primary | to_color | set_alpha: 0.12 | format: rgba }};
-@define-color border-light          {{ extra.text.primary | to_color | set_alpha: 0.1 | format: rgba }};
-@define-color border-medium         {{ extra.border.medium }};
+@define-color border                {{ text.primary | to_color | set_alpha: 0.12 | format: rgba }};
+@define-color border-light          {{ text.primary | to_color | set_alpha: 0.1 | format: rgba }};
+@define-color border-medium         {{ border.medium }};
 
 /* ── Shadow ── */
 /* @define-color shadow                rgba(0, 0, 0, 0.2); */
 /* @define-color shadow-light          rgba(0, 0, 0, 0.15); */
 /* @define-color shadow-medium         rgba(0, 0, 0, 0.18); */
 /* @define-color shadow-deep           rgba(0, 0, 0, 0.4); */
-@define-color shadow                {{ extra.layer.crust | to_color | set_alpha: 0.2 | format: rgba }};
-@define-color shadow-light          {{ extra.layer.crust | to_color | set_alpha: 0.15 | format: rgba }};
-@define-color shadow-medium         {{ extra.layer.crust | to_color | set_alpha: 0.18 | format: rgba }};
-@define-color shadow-deep           {{ extra.layer.crust | to_color | set_alpha: 0.4 | format: rgba }};
+@define-color shadow                {{ surface.low | to_color | set_alpha: 0.2 | format: rgba }};
+@define-color shadow-light          {{ surface.low | to_color | set_alpha: 0.15 | format: rgba }};
+@define-color shadow-medium         {{ surface.low | to_color | set_alpha: 0.18 | format: rgba }};
+@define-color shadow-deep           {{ surface.low | to_color | set_alpha: 0.4 | format: rgba }};
 
 /* ── Legacy aliases (for backward compat) ── */
-@define-color text-primary          {{ extra.text.primary }};
-@define-color text-secondary        {{ extra.text.secondary }};
-@define-color text-muted            {{ extra.text.muted }};
-@define-color text-link             {{ extra.text.link }};
-@define-color text-visited          {{ extra.text.visited }};
+@define-color text-primary          {{ text.primary }};
+@define-color text-secondary        {{ text.secondary }};
+@define-color text-muted            {{ text.muted }};
+@define-color text-link             {{ text.link }};
+@define-color text-visited          {{ text.visited }};
 
-@define-color accent-primary        {{ extra.accent.primary }};
-@define-color accent-secondary      {{ extra.accent.secondary }};
-@define-color accent-on             {{ extra.accent.on_accent }};
+@define-color accent-primary        {{ accent.primary }};
+@define-color accent-secondary      {{ accent.secondary }};
+@define-color accent-on             {{ accent.on_accent }};
 
-@define-color layer-base            {{ extra.layer.base }};
-@define-color layer-mantle          {{ extra.layer.mantle }};
-@define-color layer-crust           {{ extra.layer.crust }};
-@define-color layer-surface         {{ extra.layer.surface }};
-@define-color layer-surface-raised  {{ extra.layer.surface_raised }};
-@define-color layer-surface-overlay {{ extra.layer.surface_overlay }};
+@define-color layer-base            {{ surface.base }};
+@define-color layer-mantle          {{ surface.lowest }};
+@define-color layer-crust           {{ surface.low }};
+@define-color layer-surface         {{ surface.medium }};
+@define-color layer-surface-raised  {{ surface.high }};
+@define-color layer-surface-overlay {{ surface.highest }};
 
-@define-color border-default        {{ extra.border.default }};
-@define-color border-active         {{ extra.border.active }};
+@define-color border-default        {{ border.default }};
+@define-color border-active         {{ border.active }};
 
-@define-color status-success        {{ extra.status.success }};
-@define-color status-warning        {{ extra.status.warning }};
-@define-color status-error          {{ extra.status.error }};
-@define-color status-critical       {{ extra.status.critical }};
-@define-color status-info           {{ extra.status.info }};
+@define-color status-success        {{ status.success }};
+@define-color status-warning        {{ status.warning }};
+@define-color status-error          {{ status.error }};
+@define-color status-critical       {{ status.critical }};
+@define-color status-info           {{ status.info }};
 
 /* ── Additional derived colors ── */
-@define-color alpha-crust           {{ extra.layer.crust | to_color | set_alpha: 0.7 | lighten: -3.5 | format: rgba }};
-@define-color tr-crust              {{ extra.layer.crust | to_color | set_alpha: 0.6 | lighten: -50 | format: rgba }};
+@define-color alpha-crust           {{ surface.low | to_color | set_alpha: 0.7 | lighten: -3.5 | format: rgba }};
+@define-color tr-crust              {{ surface.low | to_color | set_alpha: 0.6 | lighten: -50 | format: rgba }};

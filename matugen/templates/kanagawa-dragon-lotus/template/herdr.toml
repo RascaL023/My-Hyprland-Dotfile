@@ -15,35 +15,35 @@ next_workspace = "prefix+}"
 # ─────────────────────────────────────────────
 # Base surfaces
 # ─────────────────────────────────────────────
-panel_bg  = "{{ extra.layer.base }}"
-surface0 = "{{ extra.layer.surface }}"
-surface1 = "{{ extra.layer.surface_raised }}"
-surface_dim = "{{ extra.layer.surface_overlay }}"
+panel_bg  = "{{ surface.base }}"
+surface0 = "{{ surface.medium }}"
+surface1 = "{{ surface.high }}"
+surface_dim = "{{ surface.highest }}"
 
 # ─────────────────────────────────────────────
 # Borders / muted UI
 # ─────────────────────────────────────────────
-overlay0 = "{{ extra.border.default | to_color | lighten: 30 | format: hex }}"
-overlay1 = "{{ extra.border.active }}"
+overlay0 = "{{ border.default | to_color | lighten: 30 | format: hex }}"
+overlay1 = "{{ border.active }}"
 
 # ─────────────────────────────────────────────
 # Foreground
 # ─────────────────────────────────────────────
-text    = "{{ extra.text.primary }}"
-subtext0 = "{{ extra.text.secondary }}"
+text    = "{{ text.primary }}"
+subtext0 = "{{ text.secondary }}"
 
 # ─────────────────────────────────────────────
 # Main interaction accent
 # ─────────────────────────────────────────────
-accent = "{{ extra.accent.primary }}"
+accent = "{{ accent.primary }}"
 
 # ─────────────────────────────────────────────
 # Semantic / special colors
 # ─────────────────────────────────────────────
-mauve  = "{{ extra.accent.secondary }}"
-green  = "{{ extra.status.success }}"
-yellow = "{{ extra.status.warning }}"
-red    = "{{ extra.status.error }}"
-blue   = "{{ extra.bg.conflict }}"
-teal   = "{{ extra.syntax.type }}"
-peach  = "{{ extra.syntax.string }}"
+mauve  = "{{ accent.secondary }}"
+green  = "{{ status.success }}"
+yellow = "{{ status.warning }}"
+red    = "{{ status.error }}"
+blue   = "{{ bg.conflict }}"
+teal   = "{{ syntax.type }}"
+peach  = "{{ syntax.string }}"
